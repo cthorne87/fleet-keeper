@@ -4,7 +4,8 @@
   "description": "project 2",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,11 @@
   "bugs": {
     "url": "https://github.com/cthorne87/fleet-keeper/issues"
   },
-  "homepage": "https://github.com/cthorne87/fleet-keeper#readme"
+  "homepage": "https://github.com/cthorne87/fleet-keeper#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "express-handlebars": "^6.0.2",
+    "express-session": "^1.17.2",
+    "sequelize": "^6.15.0"
+  }
 }
