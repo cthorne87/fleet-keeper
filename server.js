@@ -1,12 +1,12 @@
 // Dependencies
-const routes = require("./routes/apiRoutes");
-const express = require("express");
-const exphbs = require("express-handlebars");
-const session = require("express-session");
 const path = require("path");
-const hbs = exphbs.create({});
+const express = require("express");
 const sequelize = require("sequelize");
+const session = require("express-session");
+const routes = require("./routes");
 const controllers = require("./controllers");
+const exphbs = require("express-handlebars");
+const hbs = exphbs.create({});
 
 // Sets up the Express App
 const app = express();
@@ -15,8 +15,8 @@ const PORT = process.env.PORT || 3001;
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 app.use(express.static(path.join(__dirname, "public")));
-// app.use(controllers);
-// app.use(routes);
+app.use(routes);
+app.use(controllers);
 // app.use(session);
 // app.use(sequelize)
 // Starts the server to begin listening
