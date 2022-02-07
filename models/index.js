@@ -1,7 +1,7 @@
-const User;
-const Vehicle;
-const Insurance = require('./Insurance');
-const Registration = require('./Registration');
+// const User;
+// const Vehicle;
+// const Insurance = require('./Insurance');
+// const Registration = require('./Registration');
 
 // Associations
 
@@ -21,4 +21,4 @@ const Registration = require('./Registration');
 //     foreignKey: 'vehicle_id'
 // })
 
-module.exports = { Insurance, Registration };
+// module.exports = { Insurance, Registration };
