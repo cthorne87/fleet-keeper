@@ -41,6 +41,15 @@ Insurance.init(
         //         key: 'id'
         //     }
         // }
+    
+        // placeholder / update when vehicle model is made
+        // vehicle_id: {
+        //     type: DataTypes.INTEGER,
+        //     references: {
+        //         model: 'vehicle',
+        //         key: 'id'
+        //     }
+        // }
     },
     {
         sequelize,
