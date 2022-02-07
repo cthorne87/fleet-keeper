@@ -1,4 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
 class Insurance extends Model { }
 
@@ -25,18 +26,18 @@ Insurance.init(
             }
         },
         start_date: {
-            type: DataTypes.DATE,
+            type: DataTypes.DATEONLY,
             allowNull: false // CHECK BACK
         },
         end_date: {
-            type: DataTypes.DATE,
+            type: DataTypes.DATEONLY,
             allowNull: false // CHECK BACK
         },
         // placeholder / update when user model is made
         // user_id: {
         //     type: DataTypes.INTEGER,
         //     references: {
-        //         modle: 'user',
+        //         model: 'user',
         //         key: 'id'
         //     }
         // }

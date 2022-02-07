@@ -1,20 +1,20 @@
 const router = require('express').Router();
-const { Insurance } = require('../../models');
+const { Registration } = require('../../models');
 
 //get by user
 
 //get by id
 router.get('/:id', (req, res) => {
-    Insurance.findOne({
+    Registration.findOne({
         where: {
             id: req.params.id
         }
     })
-        .then(insuranceData => {
-            if (!insuranceData) {
-                res.status(404).json({ message: 'No Insurance info found with requested id' });
+        .then(registrationData => {
+            if (!registrationData) {
+                res.status(404).json({ message: 'No Registration info found with requested id' });
             }
-            res.json(insuranceData);
+            res.json(registrationData);
         })
         .catch(err => {
             console.log(err);
@@ -23,13 +23,12 @@ router.get('/:id', (req, res) => {
 })
 //create
 router.post('/', (req, res) => {
-    Insurance.create({
-        company: req.body.company,
-        policy: req.body.policy,
-        start_date: req.body.start_date,
-        end_date: req.body.end_date
+    Registration.create({
+        state: req.body.state,
+        issued_date: req.body.issued_date,
+        expiration_date: req.body.expiration_date
     })
-        .then(insuranceData => res.json(insuranceData))
+        .then(registrationData => res.json(registrationData))
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
@@ -37,18 +36,18 @@ router.post('/', (req, res) => {
 })
 //edit
 router.put('/:id', (req, res) => {
-    Insurance.update(req.body, {
+    Registration.update(req.body, {
         individualHooks: true,
         where: {
             id: req.params.id
         }
     })
-        .then(insuranceData => {
-            if (!insuranceData) {
-                res.status(404).json({ message: 'No Insurance info found with requested id' });
+        .then(registrationData => {
+            if (!registrationData) {
+                res.status(404).json({ message: 'No Registration info found with requested id' });
                 return;
             }
-            res.json(insuranceData);
+            res.json(registrationData);
         })
         .catch(err => {
             console.log(err);
@@ -57,16 +56,16 @@ router.put('/:id', (req, res) => {
 })
 //delete
 router.delete('/:id', (req, res) => {
-    Insurance.destroy({
+    Registration.destroy({
         where: {
             id: req.params.id
         }
-            .then(insuranceData => {
-                if (!insuranceData) {
-                    res.status(404).json({ message: 'No Insurance info found with requested id' })
+            .then(registrationData => {
+                if (!registrationData) {
+                    res.status(404).json({ message: 'No Registration info found with requested id' })
                     return;
                 }
-                res.json(insuranceData);
+                res.json(registrationData);
             })
             .catch(err => {
                 console.log(err);
