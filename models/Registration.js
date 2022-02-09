@@ -26,22 +26,20 @@ Registration.init(
             type: Datatypes.DATEONLY,
             allowNull: false
         },
-        // placeholder / update when user model is made
-        // user_id: {
-        //     type: Datatypes.INTEGER,
-        //     references: {
-        //         model: 'user',
-        //         key: 'id'
-        //     }
-        // }
-        // placeholder / update when vehicle model is made
-        // vehicle_id: {
-        //     type: DataTypes.INTEGER,
-        //     references: {
-        //         model: 'vehicle',
-        //         key: 'id'
-        //     }
-        // }
+        user_id: {
+            type: Datatypes.INTEGER,
+            references: {
+                model: 'user',
+                key: 'id'
+            }
+        },
+        vehicle_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'vehicle',
+                key: 'id'
+            }
+        }
     },
     {
         sequelize,
