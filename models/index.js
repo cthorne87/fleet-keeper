@@ -21,4 +21,4 @@ Registration.belongsTo(Vehicle, {
     foreignKey: 'vehicle_id'
 })
 
-module.exports = { Insurance, Registration };
+module.exports = { User, Vehicle, Insurance, Registration };

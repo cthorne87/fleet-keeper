@@ -29,23 +29,7 @@ Vehicle.init (
                 model: 'user',
                 key: 'id'
             }
-        },
-        // insurance_id: {
-        //     type: DataTypes.INTEGER,
-        //     allowNull: false,
-        //     references: {
-        //         model: 'insurance',
-        //         key: 'id'
-        //     }
-        // },
-        // registration_id: {
-        //     type: DataTypes.INTEGER,
-        //     allowNull: false,
-        //     references: {
-        //         model: 'registration',
-        //         key: 'id'
-        //     }
-        // }
+        }
     },
     {
     sequelize,
