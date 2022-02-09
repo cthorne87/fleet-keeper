@@ -3,7 +3,7 @@ const { User } = require('../../models')
 
 // GET /api/users by id
 router.get('/:id', (req, res) => {
-    Registration.findOne({
+    User.findOne({
         where: {
             id: req.params.id
         }
