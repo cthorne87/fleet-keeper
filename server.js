@@ -1,7 +1,7 @@
 // Dependencies
 const path = require("path");
 const express = require("express");
-// const sequelize = require("sequelize");
+const sequelize = require("./config/connection");
 const session = require("express-session");
 const routes = require("./routes");
 // const controllers = require("./controllers");
@@ -18,8 +18,8 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(routes);
 // app.use(controllers);
 // app.use(session);
-// app.use(sequelize)
+
 // Starts the server to begin listening
-app.listen(PORT, () => {
-  console.log("Server listening on: http://localhost:" + PORT);
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => console.log('Now listening'));
 });
