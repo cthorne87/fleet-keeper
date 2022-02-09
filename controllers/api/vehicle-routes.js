@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Vehicle } = require('../../models');
 
-//get by user
+//get by user 
 
 //get by id
 router.get('/:id', (req, res) => {
