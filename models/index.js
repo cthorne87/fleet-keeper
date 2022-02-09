@@ -1,5 +1,5 @@
 const User = require('./user');
-const Vehicle = require('./vehicle');
+const Vehicle = require('./Vehicle');
 const Insurance = require('./Insurance');
 const Registration = require('./Registration');
 
