@@ -24,9 +24,10 @@ router.get('/:id', (req, res) => {
 //create
 router.post('/', (req, res) => {
     Vehicle.create({
+        vin: req.body.vin,
         make: req.body.make,
         model: req.body.model,
-        
+        user_id: req.body.user_id
     })
         .then(vehicleData => res.json(vehicleData))
         .catch(err => {

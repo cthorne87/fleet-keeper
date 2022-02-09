@@ -8,16 +8,16 @@ router.get('/:id', (req, res) => {
             id: req.params.id
         }
     })
-    .then( userData => {
-        if (!userData) {
-            res.status(404).json({ message: 'No User info found'})
-        }
-        res.json(userData);
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    })
+        .then(userData => {
+            if (!userData) {
+                res.status(404).json({ message: 'No User info found' })
+            }
+            res.json(userData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        })
 })
 
 // create route
@@ -42,9 +42,9 @@ router.put('/:id', (req, res) => {
         }
     })
         .then(userData => {
-            if(!userData) {
-                res.status(404).json({message: 'No User info found with requested id'});
-                return; 
+            if (!userData) {
+                res.status(404).json({ message: 'No User info found with requested id' });
+                return;
             }
             res.json(userData);
         })
