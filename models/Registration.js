@@ -1,4 +1,4 @@
-const { Model, Datatypes } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Registration extends Model { }
@@ -12,22 +12,22 @@ Registration.init(
             autoIncrement: true
         },
         state: {
-            type: Datatypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
             }
         },
         issued_date: {
-            type: Datatypes.DATEONLY,
+            type: DataTypes.DATEONLY,
             allowNull: false
         },
         expiration_date: {
-            type: Datatypes.DATEONLY,
+            type: DataTypes.DATEONLY,
             allowNull: false
         },
         user_id: {
-            type: Datatypes.INTEGER,
+            type: DataTypes.INTEGER,
             references: {
                 model: 'user',
                 key: 'id'
