@@ -6,7 +6,6 @@ const data = [
         policy: '1234',
         start_date: '1/1/2022',
         end_date: '1/1/2023',
-        user_id: '1',
         vehicle_id: '1'
     },
     {
@@ -14,7 +13,6 @@ const data = [
         policy: '1234',
         start_date: '1/1/2022',
         end_date: '1/1/2023',
-        user_id: '2',
         vehicle_id: '2'
     },
     {
@@ -22,7 +20,6 @@ const data = [
         policy: '1234',
         start_date: '1/1/2022',
         end_date: '1/1/2023',
-        user_id: '2',
         vehicle_id: '3'
     },
     {
@@ -30,7 +27,6 @@ const data = [
         policy: '1234',
         start_date: '1/1/2022',
         end_date: '1/1/2023',
-        user_id: '3',
         vehicle_id: '4'
     },
     {
@@ -38,7 +34,6 @@ const data = [
         policy: '1234',
         start_date: '1/1/2022',
         end_date: '1/1/2023',
-        user_id: '3',
         vehicle_id: '5'
     },
 ]

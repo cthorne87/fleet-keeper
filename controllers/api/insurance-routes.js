@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Insurance } = require('../../models');
+const { Insurance, Vehicle} = require('../../models');
 
 //get by user
 
@@ -8,7 +8,13 @@ router.get('/:id', (req, res) => {
     Insurance.findOne({
         where: {
             id: req.params.id
-        }
+        },
+        include: [
+            {
+                model: Vehicle,
+                attributes:['vin', 'make', 'model']
+            }
+        ]
     })
         .then(insuranceData => {
             if (!insuranceData) {
@@ -28,7 +34,7 @@ router.post('/', (req, res) => {
         policy: req.body.policy,
         start_date: req.body.start_date,
         end_date: req.body.end_date,
-        user_id: req.body.user_id,
+        // user_id: req.body.user_id,
         vehicle_id: req.body.vehicle_id
     })
         .then(insuranceData => res.json(insuranceData))
