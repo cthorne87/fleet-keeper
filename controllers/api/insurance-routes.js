@@ -27,7 +27,9 @@ router.post('/', (req, res) => {
         company: req.body.company,
         policy: req.body.policy,
         start_date: req.body.start_date,
-        end_date: req.body.end_date
+        end_date: req.body.end_date,
+        user_id: req.body.user_id,
+        vehicle_id: req.body.vehicle_id
     })
         .then(insuranceData => res.json(insuranceData))
         .catch(err => {

@@ -26,7 +26,9 @@ router.post('/', (req, res) => {
     Registration.create({
         state: req.body.state,
         issued_date: req.body.issued_date,
-        expiration_date: req.body.expiration_date
+        expiration_date: req.body.expiration_date,
+        user_id: req.body.user_id,
+        vehicle_id: req.body.vehicle_id
     })
         .then(registrationData => res.json(registrationData))
         .catch(err => {
