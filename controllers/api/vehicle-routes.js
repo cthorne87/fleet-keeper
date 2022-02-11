@@ -23,16 +23,16 @@ router.get('/:id', (req, res) => {
 })
 //create
 router.post('/', (req, res) => {
-    Vehicle.create({
-        make: req.body.make,
-        model: req.body.model,
+    let lookupVehicle = require('lookup_vehicle');
+
+   let vehicle = await lookupVehicle
+      .lookup(req.body.vin)
+      
+   let vehicleData = await vehicle.create({
+        make:vehicle.Results[0].Make,
+        // model: req.body.model,
         
     })
-        .then(vehicleData => res.json(vehicleData))
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        })
 })
 //edit
 router.put('/:id', (req, res) => {
