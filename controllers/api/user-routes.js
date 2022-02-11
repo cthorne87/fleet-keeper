@@ -10,13 +10,13 @@ router.get('/:id', (req, res) => {
         },
         include: [
             {
-                model: Vehicle,
-                attributes: ['id', 'make', 'model'],
-                include: {
-                    model: Insurance,
-                    attributes: ['id', 'company', 'policy', 'start_date', 'end_date'],
-                    model: Registration,
-                    attributes: ['id', 'state', 'issued_date', 'expiration_date']
+            model: Vehicle,
+            attributes: ['id', 'make', 'model'],
+            include: {
+                model: Insurance,
+                attributes: ['id', 'company', 'policy', 'start_date', 'end_date'],
+                model: Registration,
+                attributes: ['id', 'state', 'issued_date', 'expiration_date']
                 },
             }
         ]
