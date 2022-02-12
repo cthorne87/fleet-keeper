@@ -1,10 +1,9 @@
 const router = require('express').Router();
-const { Insurance, Vehicle} = require('../../models');
-
-//get by user
+const { Insurance, Vehicle } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 //get by id
-router.get('/:id', (req, res) => {
+router.get('/:id', withAuth, (req, res) => {
     Insurance.findOne({
         where: {
             id: req.params.id
@@ -12,7 +11,7 @@ router.get('/:id', (req, res) => {
         include: [
             {
                 model: Vehicle,
-                attributes:['vin', 'make', 'model']
+                attributes: ['vin', 'make', 'model']
             }
         ]
     })
@@ -28,7 +27,7 @@ router.get('/:id', (req, res) => {
         })
 })
 //create
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
     Insurance.create({
         company: req.body.company,
         policy_number: req.body.policy_number,
@@ -43,7 +42,7 @@ router.post('/', (req, res) => {
         })
 })
 //edit
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
     Insurance.update(req.body, {
         individualHooks: true,
         where: {
@@ -63,7 +62,7 @@ router.put('/:id', (req, res) => {
         })
 })
 //delete
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
     Insurance.destroy({
         where: {
             id: req.params.id
