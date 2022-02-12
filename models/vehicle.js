@@ -5,13 +5,11 @@ class Vehicle extends Model {}
 
 Vehicle.init (
     {
-        id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            primaryKey: true,
-            autoIncrement: true
-        },
         vin: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        type: {
             type: DataTypes.INTEGER,
             allowNull: false
         },
@@ -21,6 +19,26 @@ Vehicle.init (
         },
         model: {
             type: DataTypes.STRING
+        },
+        purchased: {
+            type: DataTypes.DATE,
+            allowNull: true
+        },
+        registered: {
+            type: DataTypes.BINARY,
+            allowNull: true,
+            references: {
+                model: 'registration',
+                key: 'vin'
+            }
+        },
+        insured: {
+            type: DataTypes.BINARY,
+            allowNull: true,
+            references: {
+                model: 'insurance',
+                key: 'vin'
+            }
         },
         user_id:{
             type: DataTypes.INTEGER,
