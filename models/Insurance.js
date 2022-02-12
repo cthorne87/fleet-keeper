@@ -18,7 +18,7 @@ Insurance.init(
                 len: [1]
             }
         },
-        policy: {
+        policy_number: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {

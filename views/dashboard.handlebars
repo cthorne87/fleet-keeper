@@ -6,19 +6,26 @@
     <div id="vehicles">
         <h3>Vehicle Model</h3>
         <div>
-            {{!-- car image goes here  --}}
+            {{!-- car image goes here --}}
         </div>
         <div>
             {{!-- insurance, registration, etc goes here as li --}}
+            <ol>
+                {{#each vehicles as |vehicle|}}
+                <li>
+                    {{>vehicle-card vehicle}}
+                </li>
+                {{/each}}
+            </ol>
         </div>
     </div>
 </section>
 <section>
     <h3>Add a Vehicle</h3>
-    <form class ="new-vehicle-form">
+    <form class="new-vehicle-form">
         <div>
-         <label for="vin-lookup">VIN</label>
-        <input type="text" id="add-vin"/>
+            <label for="vin-lookup">VIN</label>
+            <input type="text" id="add-vin" />
         </div>
         <button type="submit" class="btn">Create</button>
     </form>

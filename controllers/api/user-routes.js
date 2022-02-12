@@ -4,19 +4,19 @@ const { User, Vehicle, Insurance, Registration } = require('../../models')
 // GET /api/users by id
 router.get('/:id', (req, res) => {
     User.findOne({
-        attributes: { exclude: ['password'] },
+        // attributes: { exclude: ['password'] },
         where: {
             id: req.params.id
         },
         include: [
             {
-                model: Vehicle,
-                attributes: ['id', 'make', 'model'],
-                include: {
-                    model: Insurance,
-                    attributes: ['id', 'company', 'policy', 'start_date', 'end_date'],
-                    model: Registration,
-                    attributes: ['id', 'state', 'issued_date', 'expiration_date']
+            model: Vehicle,
+            attributes: ['id', 'make', 'model'],
+            include: {
+                model: Insurance,
+                attributes: ['id', 'company', 'policy', 'start_date', 'end_date'],
+                model: Registration,
+                attributes: ['id', 'state', 'issued_date', 'expiration_date']
                 },
             }
         ]
@@ -61,6 +61,7 @@ User.findOne({
     }
     }).then(userData => {
         if (!userData) {
+            console.error('Incorrect Email');
         res.status(400).json({ message: 'No user with that email address' });
         return;
         }
@@ -68,6 +69,7 @@ User.findOne({
         const validPassword = userData.checkPassword(req.body.password);
 
         if (!validPassword) {
+            console.error('Incorrect Password');
         res.status(400).json({ message: 'Incorrect password' });
         return;
         }
