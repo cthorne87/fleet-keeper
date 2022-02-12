@@ -31,7 +31,7 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
     Insurance.create({
         company: req.body.company,
-        policy: req.body.policy,
+        policy_number: req.body.policy_number,
         start_date: req.body.start_date,
         end_date: req.body.end_date,
         vehicle_id: req.body.vehicle_id
