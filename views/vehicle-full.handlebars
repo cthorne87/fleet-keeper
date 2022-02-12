@@ -1,0 +1,54 @@
+<div>
+    <h2>Vehicle</h2>
+    <table>
+        <tr>
+            <th>Vin</th>
+            <th>Make</th>
+            <th>Model</th>
+            <th>other</th>
+            <th>other</th>
+            <th>other</th>
+        </tr>
+        <tr>
+            <td>{{vin}}</td>
+            <td>{{make}}</td>
+            <td>{{model}}</td>
+        </tr>
+    </table>
+    <h3>Registration</h3>
+    {{#if registration}}
+    <table>
+        <tr>
+            <th>State</th>
+            <th>Issued</th>
+            <th>Expires</th>
+        </tr>
+        <tr>
+            <td>{{registration.state}}</td>
+            <td>{{registration.issued_date}}</td>
+            <td>{{registration.expiration_date}}</td>
+        </tr>
+    </table>
+    {{else}}
+    <button>add registration</button>
+    {{/if}}
+    <h3>Insurance</h3>
+    {{#if insurance}}
+    <table>
+        <tr>
+            <th>Company</th>
+            <th>Policy</th>
+            <th>Starts</th>
+            <th>Ends</th>
+        </tr>
+        <tr>
+            <td>{{insurance.company}}</td>
+            <td>{{insurance.policy_number}}</td>
+            <td>{{insurance.start_date}}</td>
+            <td>{{insurance.end_date}}</td>
+        </tr>
+    </table>
+    {{else}}
+    <button>add insurance</button>
+    {{/if}}
+</div>

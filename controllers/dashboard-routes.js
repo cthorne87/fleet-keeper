@@ -35,6 +35,40 @@ router.get('/', withAuth, (req, res) => {
         })
 })
 
+// Single vehicle page
+router.get('/vehicle/:id', withAuth, (req, res) => {
+    Vehicle.findOne({
+        where: {
+            id: req.params.id // or vin
+        },
+        attributes: [
+            'id',
+            'vin',
+            'make',
+            'model'
+        ],
+        include: [
+            {
+                model: Registration,
+                attributes: ['id', 'state', 'issued_date', 'expiration_date']
+            },
+            {
+                model: Insurance,
+                attributes: ['id', 'company', 'policy_number', 'start_date', 'end_date']
+            }
+        ]
+    })
+        .then(vehicleData => {
+            const vehicle = vehicleData.get({ plain: true });
+            console.info(vehicle);
+            res.render('vehicle-full', vehicle);
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(500).json(err);
+        })
+})
+
 router.get('/login', (req, res) => {
     res.render('login');
 })
