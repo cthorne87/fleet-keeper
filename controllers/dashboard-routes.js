@@ -4,9 +4,9 @@ const router = require('express').Router();
 
 router.get('/', (req, res) => {
     Vehicle.findAll({
-        // where: {
-        //     user_id: req.session.user_id
-        // },
+        where: {
+            user_id: req.session.user_id
+        },
         attributes: [
             'id',
             'vin',
@@ -26,10 +26,11 @@ router.get('/', (req, res) => {
     })
         .then(vehicleData => {
             const vehicles = vehicleData.map(vehicle => vehicle.get({ plain: true }));
-            res.render('dashboard', vehicles);
+            console.info(vehicles);
+            res.render('dashboard', { vehicles, loggedIn: true });
         })
         .catch(err => {
-            console.log(err);
+            console.error(err);
             res.status(500).json(err);
         })
 })
