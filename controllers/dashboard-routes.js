@@ -1,8 +1,8 @@
-const { Vehicle, Registration, Insurance } = require('../models');
-
 const router = require('express').Router();
+const { Vehicle, Registration, Insurance } = require('../models');
+const withAuth = require('../utils/auth');
 
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
     Vehicle.findAll({
         where: {
             user_id: req.session.user_id
