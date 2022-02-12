@@ -13,6 +13,10 @@ Vehicle.init (
             type: DataTypes.INTEGER,
             allowNull: false
         },
+        year: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
         make: {
             type: DataTypes.STRING,
             allowNull: false,

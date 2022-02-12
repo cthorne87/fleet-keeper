@@ -10,11 +10,10 @@ router.post('/', (req, res) => {
       .lookup(req.body.vin)
       
    let vehicleData = await vehicle.create({
+     type:vehicle.Results[0].Type, 
+     year:vehicle.Results[0].Year,
         make:vehicle.Results[0].Make,
-        
-        
-        
-        // model: req.body.model,
+        model:vehicle.Results[0].Model,
         
     })
 })
@@ -41,44 +40,44 @@ router.get('/:id', (req, res) => {
             res.status(500).json(err);
         })
 })
-//edit vehicle
-router.put('/:id', (req, res) => {
-    Vehicle.update(req.body, {
-        individualHooks: true,
-        where: {
-            id: req.params.id
-        }
-    })
-        .then(vehicleData => {
-            if (!vehicleData) {
-                res.status(404).json({ message: 'No vehicle info found with requested id' });
-                return;
-            }
-            res.json(vehicleData);
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        })
-})
-//delete vehicle
-router.delete('/:vin', (req, res) => {
-    Vehicle.destroy({
-        where: {
-            vin: req.params.vin
-        }
-            .then(vehicleData => {
-                if (!vehicleData) {
-                    res.status(404).json({ message: 'No vehicle info found with requested vin' })
-                    return;
-                }
-                res.json(vehicleData);
-            })
-            .catch(err => {
-                console.log(err);
-                res.status(500).json(err);
-            })
-    })
-})
 
+// //delete vehicle
+// router.delete('/:vin', (req, res) => {
+//     Vehicle.destroy({
+//         where: {
+//             vin: req.params.vin
+//         }
+//             .then(vehicleData => {
+//                 if (!vehicleData) {
+//                     res.status(404).json({ message: 'No vehicle info found with requested vin' })
+//                     return;
+//                 }
+//                 res.json(vehicleData);
+//             })
+//             .catch(err => {
+//                 console.log(err);
+//                 res.status(500).json(err);
+//             })
+//     })
+// })
+// //edit vehicle
+// router.put('/:id', (req, res) => {
+//     Vehicle.update(req.body, {
+//         individualHooks: true,
+//         where: {
+//             id: req.params.id
+//         }
+//     })
+//         .then(vehicleData => {
+//             if (!vehicleData) {
+//                 res.status(404).json({ message: 'No vehicle info found with requested id' });
+//                 return;
+//             }
+//             res.json(vehicleData);
+//         })
+//         .catch(err => {
+//             console.log(err);
+//             res.status(500).json(err);
+//         })
+// })
 module.exports = router;
