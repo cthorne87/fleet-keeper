@@ -7,7 +7,6 @@
         {{#if registration}}
         {{>registration-info registration}}
         {{else}}
-        <button>Add Registration</button>
         {{/if}}
     </div>
 
@@ -15,7 +14,9 @@
         {{#if insurance}}
         {{>insurance-info insurance}}
         {{else}}
-        <button>Add insurance</button>
+        <form id="add-insurance">
+            <button type="submit">Add Insurance</button>
+        </form>
         {{/if}}
     </div>
 </div>
