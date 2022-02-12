@@ -1,9 +1,13 @@
 <div>
-    <div>{{vin}}</div>
-    <div>{{make}}</div>
-    <div>{{model}}</div>
-    <div>Registration</div>
-    {{>registration-info registration}}
-    <div>Insurance</div>
-    {{>insurance-info insurance}}
+    <h3>VIN: {{vin}}</h3>
+    <div>Make: {{make}}</div>
+    <div>Model: {{model}}</div>
+
+    <div>
+        {{>registration-info registration}}
+    </div>
+
+    <div>
+        {{>insurance-info insurance}}
+    </div>
 </div>
