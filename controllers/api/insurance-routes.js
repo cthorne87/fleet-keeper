@@ -1,10 +1,9 @@
 const router = require('express').Router();
-const { Insurance, Vehicle} = require('../../models');
-
-//get by user
+const { Insurance, Vehicle } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 //get by id
-router.get('/:id', (req, res) => {
+router.get('/:id', withAuth, (req, res) => {
     Insurance.findOne({
         where: {
             id: req.params.id
@@ -12,7 +11,7 @@ router.get('/:id', (req, res) => {
         include: [
             {
                 model: Vehicle,
-                attributes:['vin', 'make', 'model']
+                attributes: ['vin', 'make', 'model']
             }
         ]
     })
@@ -23,28 +22,27 @@ router.get('/:id', (req, res) => {
             res.json(insuranceData);
         })
         .catch(err => {
-            console.log(err);
+            console.error(err);
             res.status(500).json(err);
         })
 })
 //create
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
     Insurance.create({
         company: req.body.company,
-        policy: req.body.policy,
+        policy_number: req.body.policy_number,
         start_date: req.body.start_date,
         end_date: req.body.end_date,
-        // user_id: req.body.user_id,
         vehicle_id: req.body.vehicle_id
     })
         .then(insuranceData => res.json(insuranceData))
         .catch(err => {
-            console.log(err);
+            console.error(err);
             res.status(400).json(err);
         })
 })
 //edit
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
     Insurance.update(req.body, {
         individualHooks: true,
         where: {
@@ -59,12 +57,12 @@ router.put('/:id', (req, res) => {
             res.json(insuranceData);
         })
         .catch(err => {
-            console.log(err);
+            console.error(err);
             res.status(500).json(err);
         })
 })
 //delete
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
     Insurance.destroy({
         where: {
             id: req.params.id
@@ -77,7 +75,7 @@ router.delete('/:id', (req, res) => {
                 res.json(insuranceData);
             })
             .catch(err => {
-                console.log(err);
+                console.error(err);
                 res.status(500).json(err);
             })
     })

@@ -1,10 +1,11 @@
 const router = require('express').Router();
 const { Registration, Vehicle } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 //get by user
 
 //get by id
-router.get('/:id', (req, res) => {
+router.get('/:id', withAuth, (req, res) => {
     Registration.findOne({
         where: {
             id: req.params.id
@@ -23,12 +24,12 @@ router.get('/:id', (req, res) => {
             res.json(registrationData);
         })
         .catch(err => {
-            console.log(err);
+            console.error(err);
             res.status(500).json(err);
         })
 })
 //create
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
     Registration.create({
         state: req.body.state,
         issued_date: req.body.issued_date,
@@ -38,12 +39,12 @@ router.post('/', (req, res) => {
     })
         .then(registrationData => res.json(registrationData))
         .catch(err => {
-            console.log(err);
+            console.error(err);
             res.status(500).json(err);
         })
 })
 //edit
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
     Registration.update(req.body, {
         individualHooks: true,
         where: {
@@ -58,12 +59,12 @@ router.put('/:id', (req, res) => {
             res.json(registrationData);
         })
         .catch(err => {
-            console.log(err);
+            console.error(err);
             res.status(500).json(err);
         })
 })
 //delete
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
     Registration.destroy({
         where: {
             id: req.params.id
@@ -76,7 +77,7 @@ router.delete('/:id', (req, res) => {
                 res.json(registrationData);
             })
             .catch(err => {
-                console.log(err);
+                console.error(err);
                 res.status(500).json(err);
             })
     })
