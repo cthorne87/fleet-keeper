@@ -1,21 +1,32 @@
 const router = require('express').Router();
+const { reject } = require('bcrypt/promises');
 const { Vehicle } = require('../../models');
 
 
 //create
 router.post('/', (req, res) => {
     let lookupVehicle = require('lookup_vehicle');
-
-   let vehicle = await lookupVehicle
-      .lookup(req.body.vin)
-      
-   let vehicleData = await vehicle.create({
-     type:vehicle.Results[0].Type, 
-     year:vehicle.Results[0].Year,
-        make:vehicle.Results[0].Make,
-        model:vehicle.Results[0].Model,
-        
-    })
+console.log(console.log(req.body))
+   lookupVehicle.lookup(req.body.vin)
+   .then( (response) =>{
+    let vehicleData = response.data.Results[0]   
+    console.log(response.data.Results);
+    console.log({
+        vin:vehicleData.SuggestedVIN,
+         type:vehicleData.VehicleType, 
+         year:vehicleData.ModelYear,
+         make:vehicleData.Make,
+         model:vehicleData.Model,
+        })
+    Vehicle.create({
+        vin:req.body.vin,
+         type:vehicleData.VehicleType, 
+         year:vehicleData.ModelYear,
+         make:vehicleData.Make,
+         model:vehicleData.Model,
+        //  user_id: 1
+        })
+   }) .catch(e => console.log(e))   
 })
 
 //show all vehicles
