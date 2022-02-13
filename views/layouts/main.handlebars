@@ -9,6 +9,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD
   <header>
     <h1>
       <a href="/">Fleet Keeper</a>
@@ -37,6 +38,34 @@
   <script src="./javascript/insurance.js"></script>
   <script src="/javascript/logout.js"></script>
   {{/if}}
+=======
+    <header>
+        <h1>
+            <a href="/">Fleet Keeper</a>
+        </h1>
+        <nav>
+        {{#if loggedIn}}
+        <a href="/">dashboard</a>
+        <button id="logout" class="btn-no-style">logout</button>
+        {{else}}
+        <a href="/login">login</a>
+        {{/if}}
+      </nav>
+    </header>
+
+    <main>
+        {{{ body }}}
+    </main>
+
+    <footer>
+
+    </footer>
+
+    {{!-- scripts --}}
+
+  {{!-- <script src="/javascript/logout.js"></script> --}}
+
+>>>>>>> feature/bootstrap
 
 </body>
 
