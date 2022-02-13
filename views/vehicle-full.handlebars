@@ -1,0 +1,109 @@
+<div>
+    <h2>Vehicle</h2>
+    <table>
+        <tr>
+            <th>Vin</th>
+            <th>Type</th>
+            <th>Make</th>
+            <th>Model</th>
+            <th>Purchased Date</th>
+            <th>Registered</th>
+            <th>Insured</th>
+        </tr>
+        <tr>
+            <td>{{vin}}</td>
+            <td>{{type}}</td>
+            <td>{{make}}</td>
+            <td>{{model}}</td>
+            <td>{{purchased}}</td>
+            <td>{{registered}}</td>
+            <td>{{insured}}</td>
+        </tr>
+    </table>
+    <h3>Registration</h3>
+    {{#if registration}}
+    <table>
+        <tr>
+            <th>State</th>
+            <th>Issued</th>
+            <th>Expires</th>
+        </tr>
+        <tr>
+            <td>{{registration.state}}</td>
+            <td>{{registration.issued_date}}</td>
+            <td>{{registration.expiration_date}}</td>
+        </tr>
+    </table>
+    {{else}}
+    <button>add registration</button>
+    {{/if}}
+    <h3>Insurance</h3>
+    {{#if insurance}}
+    <table>
+        <tr>
+            <th>Company</th>
+            <th>Policy</th>
+            <th>Starts</th>
+            <th>Ends</th>
+        </tr>
+        <tr>
+            <td>{{insurance.company}}</td>
+            <td>{{insurance.policy_number}}</td>
+            <td>{{insurance.start_date}}</td>
+            <td>{{insurance.end_date}}</td>
+        </tr>
+    </table>
+    {{else}}
+    <button>add insurance</button>
+    {{/if}}
+
+    <div id="edit-modal" class="modal">
+
+        <div class="modal-header">
+
+        </div>
+        <div class="modal-body">
+            <div id="edit-vehicle">
+                <form id="update-vehicle-form">
+                    <label for="type">Type:</label>
+                    <input name="type" type="text" value="{{type}}">
+                    <label for="make">Make:</label>
+                    <input name="make" type="text" value="{{make}}">
+                    <label for="model">Model:</label>
+                    <input name="model" type="text" value="{{model}}">
+                    <label for="purchased-date">Purchased Date:</label>
+                    <input name="purchased-date" type="text" value="{{purchased}}">
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            <div id="edit-registration">
+                <form id="update-registration-form">
+                    <label for="state">State:</label>
+                    <input name="state" type="text" value="{{registration.state}}">
+                    <label for="issued">Issued Date:</label>
+                    <input name="issued" type="text" value="{{registration.issued_date}}">
+                    <label for="expires">Expiration Date:</label>
+                    <input name="expires" type="text" value="{{registration.expiration_date}}">
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            <div id="edit-insurance">
+                <form id="update-insurance-form">
+                    <label for="company">Company:</label>
+                    <input name="company" type="text" value="{{insurance.company}}">
+                    <label for="policy-number">Policy Number:</label>
+                    <input name="policy-number" type="text" value="{{insurance.policy_number}}">
+                    <label for="start-date">Start Date:</label>
+                    <input name="start-date" type="text" value="{{insurance.start_date}}">
+                    <label for="end-date">End Date:</label>
+                    <input name="end-date" type="text" value="{{insurance.end_date}}">
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class="modal-footer">
+        </div>
+    </div>
+</div>
+
+<script src="../javascript/updateInfo.js"></script>
