@@ -26,18 +26,18 @@ Registration.init(
             type: DataTypes.DATEONLY,
             allowNull: false
         },
-        user_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'user',
-                key: 'id'
-            }
-        },
+        // user_id: {
+        //     type: DataTypes.INTEGER,
+        //     references: {
+        //         model: 'user',
+        //         key: 'id'
+        //     }
+        // },
         vehicle_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: 'vehicle',
-                key: 'id'
+                key: 'vin'
             }
         }
     },
