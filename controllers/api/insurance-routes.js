@@ -46,7 +46,7 @@ router.put('/:id', withAuth, (req, res) => {
     Insurance.update(req.body, {
         individualHooks: true,
         where: {
-            id: req.params.id
+            vehicle_id: req.params.id
         }
     })
         .then(insuranceData => {
@@ -65,7 +65,7 @@ router.put('/:id', withAuth, (req, res) => {
 router.delete('/:id', withAuth, (req, res) => {
     Insurance.destroy({
         where: {
-            id: req.params.id
+           vehicle_id: req.params.id
         }
             .then(insuranceData => {
                 if (!insuranceData) {
