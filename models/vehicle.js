@@ -28,22 +28,6 @@ Vehicle.init (
             type: DataTypes.DATE,
             allowNull: true
         },
-        // registered: {
-        //     type: DataTypes.BOOLEAN,
-        //     allowNull: true,
-        //     references: {
-        //         model: 'registration',
-        //         key: 'vin'
-        //     }
-        // },
-        // insured: {
-        //     type: DataTypes.BOOLEAN,
-        //     allowNull: true,
-        //     references: {
-        //         model: 'insurance',
-        //         key: 'vin'
-        //     }
-        // },
         // user_id:{
         //     type: DataTypes.INTEGER,
         //     allowNull: false,
