@@ -14,10 +14,13 @@
             <a href="/">Fleet Keeper</a>
         </h1>
         <nav>
-            <a href="login">login</a>
-            |
-            <button>logout</button>
-        </nav>
+        {{#if loggedIn}}
+        <a href="/dashboard">dashboard</a>
+        <button id="logout" class="btn-no-style">logout</button>
+        {{else}}
+        <a href="/login">login</a>
+        {{/if}}
+      </nav>
     </header>
 
     <main>
@@ -29,6 +32,9 @@
     </footer>
 
     {{!-- scripts --}}
+
+  {{!-- <script src="/javascript/logout.js"></script> --}}
+
 
 </body>
 

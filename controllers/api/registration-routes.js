@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Registration } = require('../../models');
+const { Registration, Vehicle } = require('../../models');
 
 //get by user
 
@@ -8,7 +8,13 @@ router.get('/:id', (req, res) => {
     Registration.findOne({
         where: {
             id: req.params.id
-        }
+        },
+        include: [
+            {
+                model: Vehicle,
+                attributes: ['vin', 'make', 'model'],
+            }
+        ]
     })
         .then(registrationData => {
             if (!registrationData) {
@@ -27,7 +33,7 @@ router.post('/', (req, res) => {
         state: req.body.state,
         issued_date: req.body.issued_date,
         expiration_date: req.body.expiration_date,
-        user_id: req.body.user_id,
+        // user_id: req.body.user_id,
         vehicle_id: req.body.vehicle_id
     })
         .then(registrationData => res.json(registrationData))
