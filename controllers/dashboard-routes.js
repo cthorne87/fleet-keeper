@@ -62,7 +62,7 @@ router.get('/vehicle/:id', withAuth, (req, res) => {
         .then(vehicleData => {
             const vehicle = vehicleData.get({ plain: true });
             console.info(vehicle);
-            res.render('vehicle-full', vehicle);
+            res.render('vehicle-full', { vehicle, loggedIn: true });
         })
         .catch(err => {
             console.error(err);
