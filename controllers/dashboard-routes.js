@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Vehicle, Registration, Insurance } = require('../models');
 const withAuth = require('../utils/auth');
 
+// For Dashboard
 router.get('/', withAuth, (req, res) => {
     Vehicle.findAll({
         where: {

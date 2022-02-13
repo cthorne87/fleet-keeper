@@ -3,16 +3,21 @@
     <table>
         <tr>
             <th>Vin</th>
+            <th>Type</th>
             <th>Make</th>
             <th>Model</th>
-            <th>other</th>
-            <th>other</th>
-            <th>other</th>
+            <th>Puchased Date</th>
+            <th>Registered</th>
+            <th>Insured</th>
         </tr>
         <tr>
             <td>{{vin}}</td>
+            <td>{{type}}</td>
             <td>{{make}}</td>
             <td>{{model}}</td>
+            <td>{{purchased}}</td>
+            <td>{{registered}}</td>
+            <td>{{insured}}</td>
         </tr>
     </table>
     <h3>Registration</h3>
@@ -51,4 +56,54 @@
     {{else}}
     <button>add insurance</button>
     {{/if}}
+
+    <div id="edit-modal" class="modal">
+
+        <div class="modal-header">
+
+        </div>
+        <div class="modal-body">
+            <div id="edit-vehicle">
+                <form id="update-vehicle-form">
+                    <label for="type">Type:</label>
+                    <input name="type" type="text">
+                    <label for="make">Make:</label>
+                    <input name="make" type="text">
+                    <label for="model">Model:</label>
+                    <input name="model" type="text">
+                    <label for="purchased-date">Purchased Date:</label>
+                    <input name="purhcased-date" type="text">
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            <div id="edit-registration">
+                <form id="update-registration-form">
+                    <label for="state">State:</label>
+                    <input name="state" type="text">
+                    <label for="issued">Issued Date:</label>
+                    <input name="issued" type="text">
+                    <label for="expires">Expiration Date:</label>
+                    <input name="expires" type="text">
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            <div id="edit-insurance">
+                <form id="update-insurance-form">
+                    <label for="company">Company:</label>
+                    <input name="company" type="text">
+                    <label for="policy-number">Policy Number:</label>
+                    <input name="policy-number" type="text">
+                    <label for="start-date">Start Date:</label>
+                    <input name="start-date" type="text">
+                    <label for="end-date">End Date:</label>
+                    <input name="end-date" type="text">
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class="modal-footer">
+        </div>
+    </div>
 </div>
+
+<script src="../javascript/updateInfo.js"></script>
