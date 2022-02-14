@@ -30,9 +30,8 @@ if (document.querySelector('#add-insurance-btn')) {
 
 async function deleteInsurance(event) {
     event.preventDefault();
-    console.log('trigger delete insurance')
-    const response = await fetch(`api/insurance/${vehicleId}`, {
-        method: 'DELETE',
+    const response = await fetch(`/api/insurance/${vehicleId}`, {
+        method: 'DELETE'
     })
     if (response.ok) document.location.replace(`/vehicle/${vehicleId}`);
     else alert(response.statusText);

@@ -29,7 +29,6 @@ if (document.querySelector('#add-registration-btn')) {
 
 
 async function deleteRegistration(event) {
-    console.log('trigger delete registration')
     event.preventDefault();
     const response = await fetch(`/api/registration/${vehicleId}`, {
         method: 'DELETE'

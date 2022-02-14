@@ -1,120 +1,120 @@
-<div>
-    <h2>Vehicle</h2>
-    <button id="toggle-modal-vehicle">edit</button>
-    <table>
-        <tr>
-            <th>Vin</th>
-            <th>Type</th>
-            <th>Make</th>
-            <th>Model</th>
-            <th>Purchased Date</th>
-            <th>Registered</th>
-            <th>Insured</th>
-        </tr>
-        <tr>
-            <td>{{vehicle.vin}}</td>
-            <td>{{vehicle.type}}</td>
-            <td>{{vehicle.make}}</td>
-            <td>{{vehicle.model}}</td>
-            <td>{{vehicle.purchased}}</td>
-            <td>{{vehicle.registered}}</td>
-            <td>{{vehicle.insured}}</td>
-        </tr>
-    </table>
-    <h3>Registration</h3>
-    {{#if vehicle.registration}}
-    <button id="toggle-modal-registration">edit</button>
-    <button id="delete-registration-btn">remove</button>
-    <table>
-        <tr>
-            <th>State</th>
-            <th>Issued</th>
-            <th>Expires</th>
-        </tr>
-        <tr>
-            <td>{{vehicle.registration.state}}</td>
-            <td>{{vehicle.registration.issued_date}}</td>
-            <td>{{vehicle.registration.expiration_date}}</td>
-        </tr>
-    </table>
-    {{else}}
-    <button id="toggle-modal-registration">add registration</button>
-    {{/if}}
-    <h3>Insurance</h3>
-    {{#if vehicle.insurance}}
-    <button id="toggle-modal-insurance">edit</button>
-    <button id="delete-insurance-btn">remove</button>
-    <table>
-        <tr>
-            <th>Company</th>
-            <th>Policy</th>
-            <th>Starts</th>
-            <th>Ends</th>
-        </tr>
-        <tr>
-            <td>{{vehicle.insurance.company}}</td>
-            <td>{{vehicle.insurance.policy_number}}</td>
-            <td>{{vehicle.insurance.start_date}}</td>
-            <td>{{vehicle.insurance.end_date}}</td>
-        </tr>
-    </table>
-    {{else}}
-    <button id="toggle-modal-insurance">add insurance</button>
-    {{/if}}
-
-    <div class="modal">
-
-        <div class="modal-header">
-
+<div class="col-8">
+    <div>
+        <h2>Vehicle</h2>
+        <button class="btn btn-primary" id="toggle-modal-vehicle">edit</button>
+        <button class="btn btn-danger" id="delete-vehicle-btn">remove</button>
+        <table class="table table-striped table-bordered">
+            <tr>
+                <th>Vin</th>
+                <th>Type</th>
+                <th>Make</th>
+                <th>Model</th>
+                <th>Purchased Date</th>
+                <th>Registered</th>
+                <th>Insured</th>
+            </tr>
+            <tr>
+                <td>{{vehicle.vin}}</td>
+                <td>{{vehicle.type}}</td>
+                <td>{{vehicle.make}}</td>
+                <td>{{vehicle.model}}</td>
+                <td>{{vehicle.purchased}}</td>
+                <td>{{vehicle.registered}}</td>
+                <td>{{vehicle.insured}}</td>
+            </tr>
+        </table>
+        <div id="edit-vehicle-form" class="hidden">
+            <form>
+                <label for="type" class="form-label">Type:</label>
+                <input name="type" type="text" value="{{vehicle.type}}" class="form-control">
+                <label for="make" class="form-label">Make:</label>
+                <input name="make" type="text" value="{{vehicle.make}}" class="form-control">
+                <label for="model" class="form-label">Model:</label>
+                <input name="model" type="text" value="{{vehicle.model}}" class="form-control">
+                <label for="purchased-date" class="form-label">Purchased Date:</label>
+                <input name="purchased-date" type="date" value="{{vehicle.purchased}}" class="form-control">
+                <button type="submit" class="btn btn-success" id="update-vehicle-form">Update</button>
+            </form>
         </div>
-        <div class="modal-body">
-            <div id="edit-vehicle-form" class="hidden">
-                <form>
-                    <label for="type">Type:</label>
-                    <input name="type" type="text" value="{{vehicle.type}}">
-                    <label for="make">Make:</label>
-                    <input name="make" type="text" value="{{vehicle.make}}">
-                    <label for="model">Model:</label>
-                    <input name="model" type="text" value="{{vehicle.model}}">
-                    <label for="purchased-date">Purchased Date:</label>
-                    <input name="purchased-date" type="text" value="{{vehicle.purchased}}">
-                    <button type="submit" id="update-vehicle-form">Submit</button>
-                </form>
-            </div>
-            <div id="edit-registration-form" class="hidden">
-                <form>
-                    <label for="state">State:</label>
-                    <input name="state" type="text" value="{{vehicle.registration.state}}">
-                    <label for="issued">Issued Date:</label>
-                    <input name="issued" type="date">
-                    <label for="expires">Expiration Date:</label>
-                    <input name="expires" type="date">
-                    {{#if vehicle.registration}}
-                    <button type="submit" id="update-registration-form">Submit</button>
-                    {{else}}
-                    <button type="submit" id="add-registration-btn">Add</button>
-                    {{/if}}
-                </form>
-            </div>
-            <div id="edit-insurance-form" class="hidden">
-                <form>
-                    <label for="company">Company:</label>
-                    <input name="company" type="text" value="{{vehicle.insurance.company}}">
-                    <label for="policy-number">Policy Number:</label>
-                    <input name="policy-number" type="text" value="{{vehicle.insurance.policy_number}}">
-                    <label for="start-date">Start Date:</label>
-                    <input name="start-date" type="date">
-                    <label for="end-date">End Date:</label>
-                    <input name="end-date" type="date">
-                    {{#if vehicle.insurance}}
-                    <button type="submit"  id="update-insurance-form">Submit</button>
-                    {{else}}
-                    <button type="submit" id="add-insurance-btn">Add</button>
-                    {{/if}}
-                </form>
-            </div>
+    </div>
+
+    <div>
+        <h2>Registration</h2>
+        {{#if vehicle.registration}}
+        <button class="btn btn-primary" id="toggle-modal-registration">edit</button>
+        <button class="btn btn-danger" id="delete-registration-btn">remove</button>
+        <table class="table table-striped table-bordered">
+            <tr>
+                <th>State</th>
+                <th>Issued</th>
+                <th>Expires</th>
+            </tr>
+            <tr>
+                <td>{{vehicle.registration.state}}</td>
+                <td>{{vehicle.registration.issued_date}}</td>
+                <td>{{vehicle.registration.expiration_date}}</td>
+            </tr>
+        </table>
+        {{else}}
+        <button class="btn btn-success" id="toggle-modal-registration">add registration</button>
+        {{/if}}
+        <div id="edit-registration-form" class="hidden">
+            <form>
+                <label for="state" class="form-label">State:</label>
+                <input name="state" type="text" value="{{vehicle.registration.state}}" class="form-control">
+                <label for="issued" class="form-label">Issued Date:</label>
+                <input name="issued" type="date" class="form-control">
+                <label for="expires" class="form-label">Expiration Date:</label>
+                <input name="expires" type="date" class="form-control">
+                {{#if vehicle.registration}}
+                <button type="submit" class="btn btn-success" id="update-registration-form">Update</button>
+                {{else}}
+                <button type="submit" class="btn btn-success" id="add-registration-btn">Add</button>
+                {{/if}}
+            </form>
         </div>
-        <div class="modal-footer">
+    </div>
+
+    <div>
+        <h2>Insurance</h2>
+        {{#if vehicle.insurance}}
+        <button class="btn btn-primary" id="toggle-modal-insurance">edit</button>
+        <button class="btn btn-danger" id="delete-insurance-btn">remove</button>
+        <table class="table table-striped table-bordered">
+            <tr>
+                <th>Company</th>
+                <th>Policy</th>
+                <th>Starts</th>
+                <th>Ends</th>
+            </tr>
+            <tr>
+                <td>{{vehicle.insurance.company}}</td>
+                <td>{{vehicle.insurance.policy_number}}</td>
+                <td>{{vehicle.insurance.start_date}}</td>
+                <td>{{vehicle.insurance.end_date}}</td>
+            </tr>
+        </table>
+        {{else}}
+        <button class="btn btn-success" id="toggle-modal-insurance">add insurance</button>
+        {{/if}}
+
+        <div id="edit-insurance-form" class="hidden">
+            <form>
+                <label for="company" class="form-label">Company:</label>
+                <input name="company" type="text" value="{{vehicle.insurance.company}}" class="form-control">
+                <label for="policy-number" class="form-label">Policy Number:</label>
+                <input name="policy-number" type="number" value="{{vehicle.insurance.policy_number}}"
+                    class="form-control">
+                <label for="start-date" class="form-label">Start Date:</label>
+                <input name="start-date" type="date" class="form-control">
+                <label for="end-date" class="form-label">End Date:</label>
+                <input name="end-date" type="date" class="form-control">
+                {{#if vehicle.insurance}}
+                <button type="submit" class="btn btn-success" id="update-insurance-form">Update</button>
+                {{else}}
+                <button type="submit" class="btn btn-success" id="add-insurance-btn">Add</button>
+                {{/if}}
+            </form>
         </div>
     </div>
 </div>

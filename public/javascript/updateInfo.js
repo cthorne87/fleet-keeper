@@ -78,7 +78,8 @@ if (document.querySelector('#update-insurance-form')) {
 }
 
 
-function toggleModal(event) {
+function editDataHandler(event) {
+
     if (event.target.id === "toggle-modal-vehicle") {
         let el = document.getElementById('edit-vehicle-form');
         el.classList.toggle('hidden');
@@ -93,13 +94,12 @@ function toggleModal(event) {
     }
 }
 
-
-document.querySelector('#toggle-modal-vehicle').addEventListener('click', toggleModal)
 if (document.querySelector('#toggle-modal-vehicle')) {
+    document.querySelector('#toggle-modal-vehicle').addEventListener('click', editDataHandler)
 }
-document.querySelector('#toggle-modal-registration').addEventListener('click', toggleModal)
 if (document.querySelector('#toggle-modal-registration')) {
+    document.querySelector('#toggle-modal-registration').addEventListener('click', editDataHandler)
 }
-document.querySelector('#toggle-modal-insurance').addEventListener('click', toggleModal)
 if (document.querySelector('#toggle-modal-insurance')) {
+    document.querySelector('#toggle-modal-insurance').addEventListener('click', editDataHandler)
 }
