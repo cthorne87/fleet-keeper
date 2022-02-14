@@ -1,22 +1,43 @@
 async function addRegistration(event) {
     event.preventDefault();
-    console.log('click');
-    console.log(event);
-    // const response = await fetch('/api/registration', {
-    //     method: 'POST',
-    //     mode: 'same-origin',
-    //     headers: {
-    //         'Content-type': 'application/json'
-    //     },
-    //     body: JSON.stringify({
 
-    // state: document.querySelector('.state-input').value.trim(),
-    // issued_date: document.querySelector('.issued-input').value.trim(),
-    // expiration_date: document.querySelector('.expires-input').value.trim(),
-    // vehicle_id: document.querySelector('')
+    const state = document.querySelector('input[name="state"]').value.trim();
+    const issued_date = document.querySelector('input[name="issued"]').value.trim();
+    const expiration_date = document.querySelector('input[name="expires"]').value.trim();
+    const vehicle_id = vehicleId;
 
-    //     })
-    // })
+    const response = await fetch('/api/registration', {
+        method: 'POST',
+        mode: 'same-origin',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify({
+            state,
+            issued_date,
+            expiration_date,
+            vehicle_id
+        })
+    })
+    if (response.ok) document.location.replace(`/vehicle/${vehicleId}`);
+    else alert(response.statusText);
 }
 
-document.querySelector('#add-registration').addEventListener('submit', addRegistration);
+if (document.querySelector('#add-registration-btn')) {
+    document.querySelector('#add-registration-btn').addEventListener('click', addRegistration);
+}
+
+
+async function deleteRegistration(event) {
+    console.log('trigger delete registration')
+    event.preventDefault();
+    const response = await fetch(`/api/registration/${vehicleId}`, {
+        method: 'DELETE'
+    })
+    if (response.ok) document.location.replace(`/vehicle/${vehicleId}`);
+    else alert(response.statusText);
+}
+
+if (document.querySelector('#delete-registration-btn')) {
+    document.querySelector('#delete-registration-btn').addEventListener('click', deleteRegistration);
+}

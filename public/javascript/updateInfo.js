@@ -10,19 +10,21 @@ async function updateVehicle(event) {
     // Put request
     const response = await fetch(`/api/vehicle/${vehicleId}`, {
         method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             type,
             make,
             model,
             purchased_date
-        }),
-        headers: { 'Content-Type': 'application/json' }
+        })
     });
     if (response.ok) document.location.replace(`/vehicle/${vehicleId}`);
     else alert(response.statusText);
 }
 
-document.querySelector('#update-vehicle-form').addEventListener('submit', updateVehicle);
+if (document.querySelector('#update-vehicle-form')) {
+    document.querySelector('#update-vehicle-form').addEventListener('click', updateVehicle);
+}
 
 
 async function updateRegistration(event) {
@@ -34,18 +36,20 @@ async function updateRegistration(event) {
     // Put request
     const response = await fetch(`/api/registration/${vehicleId}`, {
         method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             state,
             issued_date,
             expiration_date
-        }),
-        headers: { 'Content-Type': 'application/json' }
+        })
     });
     if (response.ok) document.location.replace(`/vehicle/${vehicleId}`);
     else alert(response.statusText);
 }
 
-document.querySelector('#update-registration-form').addEventListener('submit', updateRegistration);
+if (document.querySelector('#update-registration-form')) {
+    document.querySelector('#update-registration-form').addEventListener('click', updateRegistration);
+}
 
 
 async function updateInsurance(event) {
@@ -58,16 +62,44 @@ async function updateInsurance(event) {
     // Put request
     const response = await fetch(`/api/insurance/${vehicleId}`, {
         method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             company,
             policy_number,
             start_date,
             end_date
-        }),
-        headers: { 'Content-Type': 'application/json' }
+        })
     });
     if (response.ok) document.location.replace(`/vehicle/${vehicleId}`);
     else alert(response.statusText);
 }
+if (document.querySelector('#update-insurance-form')) {
+    document.querySelector('#update-insurance-form').addEventListener('click', updateInsurance);
+}
 
-document.querySelector('#update-insurance-form').addEventListener('submit', updateInsurance);
+
+function toggleModal(event) {
+    if (event.target.id === "toggle-modal-vehicle") {
+        let el = document.getElementById('edit-vehicle-form');
+        el.classList.toggle('hidden');
+    }
+    if (event.target.id === "toggle-modal-registration") {
+        let el = document.getElementById('edit-registration-form');
+        el.classList.toggle('hidden');
+    }
+    if (event.target.id === "toggle-modal-insurance") {
+        let el = document.getElementById('edit-insurance-form');
+        el.classList.toggle('hidden');
+    }
+}
+
+
+document.querySelector('#toggle-modal-vehicle').addEventListener('click', toggleModal)
+if (document.querySelector('#toggle-modal-vehicle')) {
+}
+document.querySelector('#toggle-modal-registration').addEventListener('click', toggleModal)
+if (document.querySelector('#toggle-modal-registration')) {
+}
+document.querySelector('#toggle-modal-insurance').addEventListener('click', toggleModal)
+if (document.querySelector('#toggle-modal-insurance')) {
+}

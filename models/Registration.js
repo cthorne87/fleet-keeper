@@ -14,9 +14,6 @@ Registration.init(
         state: {
             type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                len: [1]
-            }
         },
         issued_date: {
             type: DataTypes.DATEONLY,

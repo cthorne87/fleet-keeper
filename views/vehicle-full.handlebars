@@ -1,5 +1,6 @@
 <div>
     <h2>Vehicle</h2>
+    <button id="toggle-modal-vehicle">edit</button>
     <table>
         <tr>
             <th>Vin</th>
@@ -22,7 +23,8 @@
     </table>
     <h3>Registration</h3>
     {{#if vehicle.registration}}
-    <button>edit</button>
+    <button id="toggle-modal-registration">edit</button>
+    <button id="delete-registration-btn">remove</button>
     <table>
         <tr>
             <th>State</th>
@@ -36,11 +38,12 @@
         </tr>
     </table>
     {{else}}
-    <button>add registration</button>
+    <button id="toggle-modal-registration">add registration</button>
     {{/if}}
     <h3>Insurance</h3>
     {{#if vehicle.insurance}}
-    <button>edit</button>
+    <button id="toggle-modal-insurance">edit</button>
+    <button id="delete-insurance-btn">remove</button>
     <table>
         <tr>
             <th>Company</th>
@@ -56,17 +59,17 @@
         </tr>
     </table>
     {{else}}
-    <button>add insurance</button>
+    <button id="toggle-modal-insurance">add insurance</button>
     {{/if}}
 
-    <div id="edit-modal" class="modal">
+    <div class="modal">
 
         <div class="modal-header">
 
         </div>
         <div class="modal-body">
-            <div id="edit-vehicle">
-                <form id="update-vehicle-form">
+            <div id="edit-vehicle-form" class="hidden">
+                <form>
                     <label for="type">Type:</label>
                     <input name="type" type="text" value="{{vehicle.type}}">
                     <label for="make">Make:</label>
@@ -75,31 +78,39 @@
                     <input name="model" type="text" value="{{vehicle.model}}">
                     <label for="purchased-date">Purchased Date:</label>
                     <input name="purchased-date" type="text" value="{{vehicle.purchased}}">
-                    <button type="submit">Submit</button>
+                    <button type="submit" id="update-vehicle-form">Submit</button>
                 </form>
             </div>
-            <div id="edit-registration">
-                <form id="update-registration-form">
+            <div id="edit-registration-form" class="hidden">
+                <form>
                     <label for="state">State:</label>
                     <input name="state" type="text" value="{{vehicle.registration.state}}">
                     <label for="issued">Issued Date:</label>
-                    <input name="issued" type="text" value="{{vehicle.registration.issued_date}}">
+                    <input name="issued" type="date">
                     <label for="expires">Expiration Date:</label>
-                    <input name="expires" type="text" value="{{vehicle.registration.expiration_date}}">
-                    <button type="submit">Submit</button>
+                    <input name="expires" type="date">
+                    {{#if vehicle.registration}}
+                    <button type="submit" id="update-registration-form">Submit</button>
+                    {{else}}
+                    <button type="submit" id="add-registration-btn">Add</button>
+                    {{/if}}
                 </form>
             </div>
-            <div id="edit-insurance">
-                <form id="update-insurance-form">
+            <div id="edit-insurance-form" class="hidden">
+                <form>
                     <label for="company">Company:</label>
                     <input name="company" type="text" value="{{vehicle.insurance.company}}">
                     <label for="policy-number">Policy Number:</label>
                     <input name="policy-number" type="text" value="{{vehicle.insurance.policy_number}}">
                     <label for="start-date">Start Date:</label>
-                    <input name="start-date" type="text" value="{{vehicle.insurance.start_date}}">
+                    <input name="start-date" type="date">
                     <label for="end-date">End Date:</label>
-                    <input name="end-date" type="text" value="{{vehicle.insurance.end_date}}">
-                    <button type="submit">Submit</button>
+                    <input name="end-date" type="date">
+                    {{#if vehicle.insurance}}
+                    <button type="submit"  id="update-insurance-form">Submit</button>
+                    {{else}}
+                    <button type="submit" id="add-insurance-btn">Add</button>
+                    {{/if}}
                 </form>
             </div>
         </div>
@@ -109,3 +120,5 @@
 </div>
 
 <script src="../javascript/updateInfo.js"></script>
+<script src="../javascript/insurance.js"></script>
+<script src="../javascript/registration.js"></script>

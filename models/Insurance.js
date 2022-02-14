@@ -14,16 +14,10 @@ Insurance.init(
         company: {
             type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                len: [1]
-            }
         },
         policy_number: {
             type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                len: [1]
-            }
         },
         start_date: {
             type: DataTypes.DATEONLY,

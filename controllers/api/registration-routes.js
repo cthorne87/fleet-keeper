@@ -68,18 +68,18 @@ router.delete('/:id', withAuth, (req, res) => {
         where: {
             vehicleId: req.params.id
         }
-            .then(registrationData => {
-                if (!registrationData) {
-                    res.status(404).json({ message: 'No Registration info found with requested id' })
-                    return;
-                }
-                res.json(registrationData);
-            })
-            .catch(err => {
-                console.error(err);
-                res.status(500).json(err);
-            })
     })
+        .then(registrationData => {
+            if (!registrationData) {
+                res.status(404).json({ message: 'No Registration info found with requested id' })
+                return;
+            }
+            res.json(registrationData);
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(500).json(err);
+        })
 })
 
 module.exports = router;
