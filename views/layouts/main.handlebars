@@ -5,11 +5,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {{!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> --}}
   <title>Fleet Keeper</title>
 </head>
 
 <body>
-<<<<<<< HEAD
   <header>
     <h1>
       <a href="/">Fleet Keeper</a>
@@ -34,38 +35,8 @@
 
   {{!-- scripts --}}
   {{#if loggedIn}}
-  <script src="./javascript/registration.js"></script>
-  <script src="./javascript/insurance.js"></script>
   <script src="/javascript/logout.js"></script>
   {{/if}}
-=======
-    <header>
-        <h1>
-            <a href="/">Fleet Keeper</a>
-        </h1>
-        <nav>
-        {{#if loggedIn}}
-        <a href="/">dashboard</a>
-        <button id="logout" class="btn-no-style">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
-      </nav>
-    </header>
-
-    <main>
-        {{{ body }}}
-    </main>
-
-    <footer>
-
-    </footer>
-
-    {{!-- scripts --}}
-
-  {{!-- <script src="/javascript/logout.js"></script> --}}
-
->>>>>>> feature/bootstrap
 
 </body>
 

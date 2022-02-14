@@ -11,17 +11,18 @@
             <th>Insured</th>
         </tr>
         <tr>
-            <td>{{vin}}</td>
-            <td>{{type}}</td>
-            <td>{{make}}</td>
-            <td>{{model}}</td>
-            <td>{{purchased}}</td>
-            <td>{{registered}}</td>
-            <td>{{insured}}</td>
+            <td>{{vehicle.vin}}</td>
+            <td>{{vehicle.type}}</td>
+            <td>{{vehicle.make}}</td>
+            <td>{{vehicle.model}}</td>
+            <td>{{vehicle.purchased}}</td>
+            <td>{{vehicle.registered}}</td>
+            <td>{{vehicle.insured}}</td>
         </tr>
     </table>
     <h3>Registration</h3>
-    {{#if registration}}
+    {{#if vehicle.registration}}
+    <button>edit</button>
     <table>
         <tr>
             <th>State</th>
@@ -29,16 +30,17 @@
             <th>Expires</th>
         </tr>
         <tr>
-            <td>{{registration.state}}</td>
-            <td>{{registration.issued_date}}</td>
-            <td>{{registration.expiration_date}}</td>
+            <td>{{vehicle.registration.state}}</td>
+            <td>{{vehicle.registration.issued_date}}</td>
+            <td>{{vehicle.registration.expiration_date}}</td>
         </tr>
     </table>
     {{else}}
     <button>add registration</button>
     {{/if}}
     <h3>Insurance</h3>
-    {{#if insurance}}
+    {{#if vehicle.insurance}}
+    <button>edit</button>
     <table>
         <tr>
             <th>Company</th>
@@ -47,10 +49,10 @@
             <th>Ends</th>
         </tr>
         <tr>
-            <td>{{insurance.company}}</td>
-            <td>{{insurance.policy_number}}</td>
-            <td>{{insurance.start_date}}</td>
-            <td>{{insurance.end_date}}</td>
+            <td>{{vehicle.insurance.company}}</td>
+            <td>{{vehicle.insurance.policy_number}}</td>
+            <td>{{vehicle.insurance.start_date}}</td>
+            <td>{{vehicle.insurance.end_date}}</td>
         </tr>
     </table>
     {{else}}
@@ -66,37 +68,37 @@
             <div id="edit-vehicle">
                 <form id="update-vehicle-form">
                     <label for="type">Type:</label>
-                    <input name="type" type="text" value="{{type}}">
+                    <input name="type" type="text" value="{{vehicle.type}}">
                     <label for="make">Make:</label>
-                    <input name="make" type="text" value="{{make}}">
+                    <input name="make" type="text" value="{{vehicle.make}}">
                     <label for="model">Model:</label>
-                    <input name="model" type="text" value="{{model}}">
+                    <input name="model" type="text" value="{{vehicle.model}}">
                     <label for="purchased-date">Purchased Date:</label>
-                    <input name="purchased-date" type="text" value="{{purchased}}">
+                    <input name="purchased-date" type="text" value="{{vehicle.purchased}}">
                     <button type="submit">Submit</button>
                 </form>
             </div>
             <div id="edit-registration">
                 <form id="update-registration-form">
                     <label for="state">State:</label>
-                    <input name="state" type="text" value="{{registration.state}}">
+                    <input name="state" type="text" value="{{vehicle.registration.state}}">
                     <label for="issued">Issued Date:</label>
-                    <input name="issued" type="text" value="{{registration.issued_date}}">
+                    <input name="issued" type="text" value="{{vehicle.registration.issued_date}}">
                     <label for="expires">Expiration Date:</label>
-                    <input name="expires" type="text" value="{{registration.expiration_date}}">
+                    <input name="expires" type="text" value="{{vehicle.registration.expiration_date}}">
                     <button type="submit">Submit</button>
                 </form>
             </div>
             <div id="edit-insurance">
                 <form id="update-insurance-form">
                     <label for="company">Company:</label>
-                    <input name="company" type="text" value="{{insurance.company}}">
+                    <input name="company" type="text" value="{{vehicle.insurance.company}}">
                     <label for="policy-number">Policy Number:</label>
-                    <input name="policy-number" type="text" value="{{insurance.policy_number}}">
+                    <input name="policy-number" type="text" value="{{vehicle.insurance.policy_number}}">
                     <label for="start-date">Start Date:</label>
-                    <input name="start-date" type="text" value="{{insurance.start_date}}">
+                    <input name="start-date" type="text" value="{{vehicle.insurance.start_date}}">
                     <label for="end-date">End Date:</label>
-                    <input name="end-date" type="text" value="{{insurance.end_date}}">
+                    <input name="end-date" type="text" value="{{vehicle.insurance.end_date}}">
                     <button type="submit">Submit</button>
                 </form>
             </div>

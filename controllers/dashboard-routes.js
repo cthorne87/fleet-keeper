@@ -45,8 +45,11 @@ router.get('/vehicle/:id', withAuth, (req, res) => {
         attributes: [
             'id',
             'vin',
+            'type',
+            'year',
             'make',
-            'model'
+            'model',
+            'purchased',
         ],
         include: [
             {

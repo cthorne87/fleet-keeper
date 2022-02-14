@@ -24,7 +24,7 @@ console.log(console.log(req.body))
          year:vehicleData.ModelYear,
          make:vehicleData.Make,
          model:vehicleData.Model,
-        //  user_id: 1
+        user_id: req.session.user_id
         })
    }) .catch(e => console.log(e))   
 })
