@@ -7,16 +7,19 @@ const Registration = require('./Registration');
 //----------------------------------------//
 User.hasMany(Vehicle, {
     foreignKey: 'user_id',
+    onDelete: 'CASCADE'
 });
 Vehicle.belongsTo(User);
 //----------------------------------------//
 Vehicle.hasOne(Insurance, {
     foreignKey: 'vehicle_id',
+    onDelete: 'CASCADE'
 });
 Insurance.belongsTo(Vehicle);
 //----------------------------------------//
 Vehicle.hasOne(Registration, {
     foreignKey: 'vehicle_id',
+    onDelete: 'CASCADE'
 });
 Registration.belongsTo(Vehicle);
 
