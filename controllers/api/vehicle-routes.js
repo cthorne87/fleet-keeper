@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { reject } = require('bcrypt/promises');
-const { Vehicle } = require('../../models');
+const { Vehicle, Registration } = require('../../models');
 
 
 //create
@@ -24,58 +24,59 @@ console.log(console.log(req.body))
          year:vehicleData.ModelYear,
          make:vehicleData.Make,
          model:vehicleData.Model,
-        user_id: req.session.user_id
+         user_id: req.session.user_id,
+         purchased: req.body.date
         })
    }) .catch(e => console.log(e))   
 })
 
-//show all vehicles
 
 
 
-//show single vehicle
-router.get('/:id', (req, res) => {
-    Vehicle.findOne({
-        where: {
-            id: req.params.id
-        }
-    })
-        .then(vehicleData => {
-            if (!vehicleData) {
-                res.status(404).json({ message: 'No vehicle info found with requested id' });
-            }
-            res.json(vehicleData);
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        })
-})
 
-// //delete vehicle
-// router.delete('/:vin', (req, res) => {
-//     Vehicle.destroy({
+// //show single vehicle
+// router.get('/:id', (req, res) => {
+//     Vehicle.findOne({
 //         where: {
-//             vin: req.params.vin
+//             id: req.params.id
 //         }
-//             .then(vehicleData => {
-//                 if (!vehicleData) {
-//                     res.status(404).json({ message: 'No vehicle info found with requested vin' })
-//                     return;
-//                 }
-//                 res.json(vehicleData);
-//             })
-//             .catch(err => {
-//                 console.log(err);
-//                 res.status(500).json(err);
-//             })
 //     })
+//         .then(vehicleData => {
+//             if (!vehicleData) {
+//                 res.status(404).json({ message: 'No vehicle info found with requested id' });
+//             }
+//             res.json(vehicleData);
+//         })
+//         .catch(err => {
+//             console.log(err);
+//             res.status(500).json(err);
+//         })
 // })
-// //edit vehicle
-// router.put('/:id', (req, res) => {
-//     Vehicle.update(req.body, {
-//         individualHooks: true,
-//         where: {
+
+// // //delete vehicle
+// // router.delete('/:vin', (req, res) => {
+// //     Vehicle.destroy({
+// //         where: {
+// //             vin: req.params.vin
+// //         }
+// //             .then(vehicleData => {
+// //                 if (!vehicleData) {
+// //                     res.status(404).json({ message: 'No vehicle info found with requested vin' })
+// //                     return;
+// //                 }
+// //                 res.json(vehicleData);
+// //             })
+// //             .catch(err => {
+// //                 console.log(err);
+// //                 res.status(500).json(err);
+// //             })
+// //     })
+// // })
+// // //edit vehicle
+// // router.put('/:id', (req, res) => {
+// //     Vehicle.update(req.body, {
+// //         individualHooks: true,
+// //         where: {
 //             id: req.params.id
 //         }
 //     })
