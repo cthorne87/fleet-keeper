@@ -9,6 +9,7 @@ router.get('/', withAuth, (req, res) => {
         },
         attributes: [
             'id',
+            'year',
             'vin',
             'make',
             'model'
@@ -40,6 +41,12 @@ router.get('/login', (req, res) => {
 })
 router.get('/vehicle-new', (req, res) => {
     res.render('vehicle-new');
+})
+router.get('/register/:vin', (req, res) => {
+    res.render('register');
+})
+router.get('/insure/:vin', (req, res) => {
+    res.render('insure');
 })
 
 module.exports = router;
