@@ -45,27 +45,27 @@
         
     
     <div>
-     <button class="btn btn-success" id="add-registration-btn">add registration</button>
- <div id="edit-registration-form" class="hidden">
+     {{!-- <button class="btn btn-success" id="add-registration">add registration</button>
+ <div id="edit-registration-form" class="hidden"> --}}
       <form>
-          <label for="state" class="form-label">State:</label>
-          <input name="state" type="text" value="{{vehicle.registration.state}}" class="form-control">
-          <label for="issued" class="form-label">Issued Date:</label>
-          <input name="issued" type="date" class="form-control">
-          <label for="expires" class="form-label">Expiration Date:</label>
-          <input name="expires" type="date" class="form-control">
-          {{#if vehicle.registration}}
-          <button type="submit" class="btn btn-success" id="update-registration-form">Update</button>
+          {{!-- <label for="state" class="form-label">State:</label>
+          <input name="state" type="text" value="{{vehicle.registration.state}}" class="form-control"> --}}
+          {{!-- <label for="issued" class="form-label">Issued Date:</label>
+          <input name="issued" type="date" class="form-control"> --}}
+          {{!-- <label for="expires" class="form-label">Expiration Date:</label>
+          <input name="expires" type="date" class="form-control"> --}}
+          {{!-- {{#if vehicle.registration}} --}}
+          {{!-- <button type="submit" class="btn btn-success" id="update-registration-form">Update</button>
           {{else}}
           <button type="submit" class="btn btn-success" id="add-registration-btn">Add</button>
-          {{/if}}
+          {{/if}} --}}
       </form>
   </div>
 
   </div>
      <div>
-    <label for="insured">insured:</label>
-    <input type="radio" id="insured" />
+    {{!-- <label for="insured">insured:</label>
+    <input type="radio" id="insured" /> --}}
   </div>
         <button id="submit" type="submit" class="btn">Create</button>
     
