@@ -34,7 +34,7 @@ async function updateRegistration(event) {
     const issued_date = document.querySelector('input[name="issued"]').value.trim();
     const expiration_date = document.querySelector('input[name="expires"]').value.trim();
 
-    if (!issued_date || expiration_date) {
+    if (!issued_date || !expiration_date) {
         alert('You must include the Issued and Expiration dates');
         return;
     }
@@ -116,6 +116,7 @@ function editDataHandler(event) {
         let el = document.getElementById('edit-insurance-form');
         el.classList.toggle('hidden');
     }
+
 }
 
 if (document.querySelector('#toggle-modal-vehicle')) {
