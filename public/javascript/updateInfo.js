@@ -6,7 +6,7 @@ async function updateVehicle(event) {
     const type = document.querySelector('input[name="type"]').value.trim();
     const make = document.querySelector('input[name="make"]').value.trim();
     const model = document.querySelector('input[name="model"]').value.trim();
-    const purchased_date = document.querySelector('input[name="purchased-date"]').value.trim();
+    // const purchased_date = document.querySelector('input[name="purchased-date"]').value.trim();
 
     const response = await fetch(`/api/vehicle/${vehicleId}`, {
         method: 'PUT',

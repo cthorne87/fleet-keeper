@@ -8,6 +8,10 @@ const data = [
         insured: 'yes',
         user_id: '1'
     },
+    {
+        vin: '1GCDT13E298150891',
+        user_id: '1'
+    }
 
 ]
 

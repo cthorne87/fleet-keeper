@@ -24,31 +24,33 @@
     </div>
 </div> --}}
 <tr>
-      <td>  {{vin}}</td>
-       <td>
-                {{year}}
-             </td>   
-              <td>
-                {{make}}
-            </td>
-      <td>
-                {{model}}
-            </td>
-            <td>
-           {{#if registrationData}}
-                {{registration.state}})
+    <td>
+        <a href="/vehicle/{{id}}">
+            {{vin}}
+        </a>
+    </td>
+    <td>
+        {{year}}
+    </td>
+    <td>
+        {{make}}
+    </td>
+    <td>
+        {{model}}
+    </td>
+    <td>
+        {{#if registrationData}}
+        {{registration.state}})
         {{else}}
         <a href="/register/{{vin}}"><button>Add Registration</button></a>
         {{/if}}
-            </td>
-            <td>
-               {{#if insuranceData}}
+    </td>
+    <td>
+        {{#if insuranceData}}
         {{insurance.policy_number}}
         {{else}}
-  <a href="/insure/{{vin}}"><button>Add Insurance</button></a>
+        <a href="/insure/{{vin}}"><button>Add Insurance</button></a>
         {{/if}}
-            </td>
-    </tr>
- {{!-- <table id="table" class="table table-striped table-bordered table-condensed table-hover" > --}}
-
-      
+    </td>
+</tr>
+{{!-- <table id="table" class="table table-striped table-bordered table-condensed table-hover"> --}}

@@ -1,70 +1,69 @@
-
 <section>
-    <div id="vehicles">
-        <h2>My Vehicles</h2>
-        <div>
-           <table class="table-auto">
-  <thead>
-    <tr>
-      <th>VIN</th>
-      <th>Year</th>
-      <th>Make</th>
-      <th>Model</th>
-      <th>Registered</th>
-      <th>Insured</th>
-    </tr>
-  </thead>
-<tbody>
-                {{#each vehicles as |vehicle|}}
-           
-                    {{>vehicle-card vehicle}}
-           
-                {{/each}}
-                </tbody>
-</table>
+  <div id="vehicles">
+    <h2>My Vehicles</h2>
+    <div>
+      <table class="table-auto">
+        <thead>
+          <tr>
+            <th>VIN</th>
+            <th>Year</th>
+            <th>Make</th>
+            <th>Model</th>
+            <th>Registered</th>
+            <th>Insured</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each vehicles as |vehicle|}}
+
+          {{>vehicle-card vehicle}}
+
+          {{/each}}
+        </tbody>
+      </table>
 </section>
 
 <section>
-    <h3>Add a Vehicle</h3>
-    <form class="new-vehicle-form">
-        <div>
-            <label for="vin-lookup">VIN</label>
-            <input type="text" id="vin" />
-        </div>
-        {{!-- <div>
-    <label for="date-purchased">purchased:</label>
-    <input type="date" id="date-purchased" />
-  </div> --}}
+  <h3>Add a Vehicle</h3>
+  <form class="new-vehicle-form">
     <div>
-    <label for="registered">registered:</label>
-    <input type="radio" id="registered" />
-  </div>
-     <div>
-    <label for="insured">insured:</label>
-    <input type="radio" id="insured" />
-  </div>
-        <button id="submit" type="submit" class="btn">Create</button>
-    
-    </form>
+      <label for="vin-lookup">VIN</label>
+      <input type="text" id="vin" />
+    </div>
+    {{!-- <div>
+      <label for="date-purchased">purchased:</label>
+      <input type="date" id="date-purchased" />
+    </div> --}}
+    <div>
+      <label for="registered">registered:</label>
+      <input type="radio" id="registered" />
+    </div>
+    <div>
+      <label for="insured">insured:</label>
+      <input type="radio" id="insured" />
+    </div>
+    <button id="submit" type="submit" class="btn">Create</button>
+
+  </form>
 </section>
 
 
 <script>
-document.querySelector("#submit")
-.addEventListener("click", function(){
-fetch("/api/vehicle", {
-method: "POST",
-headers: {
-      'Content-Type': 'application/json'
-      // 'Content-Type': 'application/x-www-form-urlencoded',
-    },
-body: JSON.stringify({
-vin: document.querySelector("#vin").value,
-date: document.querySelector("#date-purchased").value
-})
-})
+  document.querySelector("#submit")
+    .addEventListener("click", function () {
+      fetch("/api/vehicle", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json'
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: JSON.stringify({
+          vin: document.querySelector("#vin").value,
+          // date: document.querySelector("#date-purchased").value
+        })
+      })
 
-})
+    })
 
 
 </script>
