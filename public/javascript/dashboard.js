@@ -8,7 +8,6 @@ document.querySelector("#submit")
     },
     body: JSON.stringify({
       vin: document.querySelector("#vin").value,
-      // date: document.querySelector("#date-purchased").value
     })
   }).then((res) => res.json())
   .then((data) => {

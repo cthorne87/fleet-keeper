@@ -5,7 +5,7 @@ async function addRegistration(event) {
     const state = document.querySelector('input[name="state"]').value.trim();
     const issued_date = document.querySelector('input[name="issued"]').value.trim();
     const expiration_date = document.querySelector('input[name="expires"]').value.trim();
-    const vehicle_id = vehicleId || null;
+    const vehicle_id = vehicleId;
 
     const response = await fetch('/api/registration', {
         method: 'POST',

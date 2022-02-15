@@ -28,6 +28,7 @@ router.get('/', withAuth, (req, res) => {
         ]
     })
         .then(vehicleData => {
+            console.log(vehicleData);
             const vehicles = vehicleData.map(vehicle => vehicle.get({ plain: true }));
             console.info(vehicles);
             res.render('dashboard', { vehicles, loggedIn: true });
@@ -38,19 +39,8 @@ router.get('/', withAuth, (req, res) => {
         })
 })
 
-
-
 router.get('/login', (req, res) => {
     res.render('login');
-})
-router.get('/vehicle-new', (req, res) => {
-    res.render('vehicle-new');
-})
-router.get('/register/:vin', (req, res) => {
-    res.render('register');
-})
-router.get('/insure/:vin', (req, res) => {
-    res.render('insure');
 })
 
 module.exports = router;

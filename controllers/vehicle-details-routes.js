@@ -15,7 +15,6 @@ router.get('/:id', withAuth, (req, res) => {
             'year',
             'make',
             'model',
-            // 'purchased',
         ],
         include: [
             {

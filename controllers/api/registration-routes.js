@@ -2,8 +2,6 @@ const router = require('express').Router();
 const { Registration, Vehicle } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-//get by user
-
 //get by id
 router.get('/:id', withAuth, (req, res) => {
     Registration.findOne({

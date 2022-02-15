@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { reject } = require('bcrypt/promises');
 const { Vehicle, Registration, Insurance } = require('../../models');
-const lookup = require('axios');
+// const lookup = require('axios');
 
 
 //create
