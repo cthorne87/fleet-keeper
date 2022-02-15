@@ -1,23 +1,16 @@
 const router = require('express').Router();
 const { reject } = require('bcrypt/promises');
-const { Vehicle, Registration } = require('../../models');
+const { Vehicle, Registration, Insurance } = require('../../models');
+const axios = require('axios');
 
 
 //create
 router.post('/', (req, res) => {
-    let lookupVehicle = require('lookup_vehicle');
-    console.log(console.log(req.body))
-    lookupVehicle.lookup(req.body.vin)
+    let lookupVehicle = require('axios');
+    lookupVehicle.get(req.body.vin)
         .then((response) => {
             let vehicleData = response.data.Results[0]
-            console.log(response.data.Results);
-            console.log({
-                vin: vehicleData.SuggestedVIN,
-                type: vehicleData.VehicleType,
-                year: vehicleData.ModelYear,
-                make: vehicleData.Make,
-                model: vehicleData.Model,
-            })
+
             Vehicle.create({
                 vin: req.body.vin,
                 type: vehicleData.VehicleType,
@@ -25,33 +18,10 @@ router.post('/', (req, res) => {
                 make: vehicleData.Make,
                 model: vehicleData.Model,
                 user_id: req.session.user_id,
-                purchased: req.body.date
+                //  purchased: req.body.date
             })
         }).catch(e => console.log(e))
 })
-
-
-
-
-
-// //show single vehicle
-// router.get('/:id', (req, res) => {
-//     Vehicle.findOne({
-//         where: {
-//             id: req.params.id
-//         }
-//     })
-//         .then(vehicleData => {
-//             if (!vehicleData) {
-//                 res.status(404).json({ message: 'No vehicle info found with requested id' });
-//             }
-//             res.json(vehicleData);
-//         })
-//         .catch(err => {
-//             console.log(err);
-//             res.status(500).json(err);
-//         })
-// })
 
 //edit vehicle
 router.put('/:id', (req, res) => {
@@ -93,5 +63,6 @@ router.delete('/:id', (req, res) => {
             res.status(500).json(err);
         })
 })
+
 
 module.exports = router;

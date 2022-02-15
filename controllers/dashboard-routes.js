@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { append } = require('express/lib/response');
 const { Vehicle, Registration, Insurance } = require('../models');
 const withAuth = require('../utils/auth');
 
@@ -18,11 +19,11 @@ router.get('/', withAuth, (req, res) => {
         include: [
             {
                 model: Registration,
-                attributes: ['id', 'state', 'issued_date', 'expiration_date']
+                attributes: ['state']
             },
             {
                 model: Insurance,
-                attributes: ['id', 'company', 'policy_number', 'start_date', 'end_date']
+                attributes: ['policy_number']
             }
         ]
     })
