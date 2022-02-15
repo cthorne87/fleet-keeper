@@ -2,10 +2,11 @@ const { Vehicle } = require('../models');
 
 const data = [
     {
-        vin: 'WVVWBW7AH5CV004721',
+        vin: '3GCEK13J68G224097',
         purchased: '2016',
         registered: 'yes',
-        insured: 'yes'
+        insured: 'yes',
+        user_id: '1'
     },
 
 ]

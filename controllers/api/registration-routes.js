@@ -34,7 +34,6 @@ router.post('/', withAuth, (req, res) => {
         state: req.body.state,
         issued_date: req.body.issued_date,
         expiration_date: req.body.expiration_date,
-        // user_id: req.body.user_id,
         vehicle_id: req.body.vehicle_id
     })
         .then(registrationData => res.json(registrationData))
@@ -48,7 +47,7 @@ router.put('/:id', withAuth, (req, res) => {
     Registration.update(req.body, {
         individualHooks: true,
         where: {
-            id: req.params.id
+            vehicle_id: req.params.id
         }
     })
         .then(registrationData => {
@@ -67,20 +66,20 @@ router.put('/:id', withAuth, (req, res) => {
 router.delete('/:id', withAuth, (req, res) => {
     Registration.destroy({
         where: {
-            id: req.params.id
+            vehicleId: req.params.id
         }
-            .then(registrationData => {
-                if (!registrationData) {
-                    res.status(404).json({ message: 'No Registration info found with requested id' })
-                    return;
-                }
-                res.json(registrationData);
-            })
-            .catch(err => {
-                console.error(err);
-                res.status(500).json(err);
-            })
     })
+        .then(registrationData => {
+            if (!registrationData) {
+                res.status(404).json({ message: 'No Registration info found with requested id' })
+                return;
+            }
+            res.json(registrationData);
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(500).json(err);
+        })
 })
 
 module.exports = router;

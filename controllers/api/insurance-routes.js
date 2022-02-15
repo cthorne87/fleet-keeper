@@ -46,7 +46,7 @@ router.put('/:id', withAuth, (req, res) => {
     Insurance.update(req.body, {
         individualHooks: true,
         where: {
-            id: req.params.id
+            vehicle_id: req.params.id
         }
     })
         .then(insuranceData => {
@@ -65,20 +65,20 @@ router.put('/:id', withAuth, (req, res) => {
 router.delete('/:id', withAuth, (req, res) => {
     Insurance.destroy({
         where: {
-            id: req.params.id
+            vehicle_id: req.params.id
         }
-            .then(insuranceData => {
-                if (!insuranceData) {
-                    res.status(404).json({ message: 'No Insurance info found with requested id' })
-                    return;
-                }
-                res.json(insuranceData);
-            })
-            .catch(err => {
-                console.error(err);
-                res.status(500).json(err);
-            })
     })
+        .then(insuranceData => {
+            if (!insuranceData) {
+                res.status(404).json({ message: 'No Insurance info found with requested id' })
+                return;
+            }
+            res.json(insuranceData);
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(500).json(err);
+        })
 })
 
 module.exports = router;

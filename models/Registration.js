@@ -13,28 +13,26 @@ Registration.init(
         },
         state: {
             type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
+            allowNull: true,
         },
         issued_date: {
             type: DataTypes.DATEONLY,
-            allowNull: false
+            allowNull: true
         },
         expiration_date: {
             type: DataTypes.DATEONLY,
-            allowNull: false
+            allowNull: true
         },
-        user_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'user',
-                key: 'id'
-            }
-        },
+        // user_id: {
+        //     type: DataTypes.INTEGER,
+        //     references: {
+        //         model: 'user',
+        //         key: 'id'
+        //     }
+        // },
         vehicle_id: {
             type: DataTypes.INTEGER,
+            allowNull: false,
             references: {
                 model: 'vehicle',
                 key: 'id'

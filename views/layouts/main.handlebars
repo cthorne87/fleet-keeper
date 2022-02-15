@@ -12,33 +12,32 @@
 </head>
 
 <body>
-    <header>
-        <h1>
-            <a href="/">Fleet Keeper</a>
-        </h1>
-        <nav>
-        {{#if loggedIn}}
-        <a href="/">dashboard</a>
-        <button id="logout" class="btn-no-style">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
-      </nav>
-    </header>
+  <header>
+    <h1>
+      <a href="/">Fleet Keeper</a>
+    </h1>
+    <nav>
+      {{#if loggedIn}}
+      <a href="/">dashboard</a>
+      <button id="logout" class="btn-no-style">logout</button>
+      {{else}}
+      <a href="/login">login</a>
+      {{/if}}
+    </nav>
+  </header>
 
-    <main>
-        {{{ body }}}
-    </main>
+  <main>
+    {{{ body }}}
+  </main>
 
-    <footer>
+  <footer>
 
-    </footer>
+  </footer>
 
-    {{!-- scripts --}}
-
-  {{!-- <script src="/javascript/logout.js"></script> --}}
-
-
+  {{!-- scripts --}}
+  {{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+  {{/if}}
 </body>
 
 </html>
