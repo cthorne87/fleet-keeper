@@ -28,7 +28,7 @@ router.get('/:id', withAuth, (req, res) => {
             res.status(500).json(err);
         })
 })
-//create
+//create registration
 router.post('/', withAuth, (req, res) => {
     Registration.create({
         state: req.body.state,
