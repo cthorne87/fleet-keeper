@@ -1,6 +1,9 @@
 const router = require('express').Router();
+const { append } = require('express/lib/response');
 const { Vehicle, Registration, Insurance } = require('../models');
 const withAuth = require('../utils/auth');
+
+
 
 router.get('/', withAuth, (req, res) => {
     Vehicle.findAll({
