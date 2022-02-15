@@ -1,4 +1,28 @@
- <table id="table" class="table" >
+{{!-- <div>
+    <h3>VIN: {{vin}}</h3>
+    <div>Make: {{make}}</div>
+    <div>Model: {{model}}</div>
+
+    <div>
+        {{#if registration}}
+        {{>registration-info registration}}
+        {{else}}
+        <form id="add-registration">
+            <button type="submit">Add Registration</button>
+        </form>
+        {{/if}}
+    </div>
+
+    <div>
+        {{#if insurance}}
+        {{>insurance-info insurance}}
+        {{else}}
+        <form id="add-insurance">
+            <button type="submit">Add Insurance</button>
+        </form>
+        {{/if}}
+    </div>
+</div> --}}
 <tr>
       <td>  {{vin}}</td>
        <td>
@@ -12,23 +36,19 @@
             </td>
             <td>
            {{#if registration}}
-        {{>registration-info registration}}
+                {{state}})
         {{else}}
         <a href="/register/{{vin}}"><button>Add Registration</button></a>
         {{/if}}
             </td>
             <td>
                {{#if insurance}}
-        {{>insurance-info insurance}}
+        {{policy_number}}
         {{else}}
   <a href="/insure/{{vin}}"><button>Add Insurance</button></a>
         {{/if}}
             </td>
     </tr>
-</table>
-      {{!-- <div>
-    <h3>VIN: {{vin}}</h3>
-    <div>Make: {{make}}</div>
-    <div>Model: {{model}}</div>
+ {{!-- <table id="table" class="table table-striped table-bordered table-condensed table-hover" > --}}
 
-  
+      

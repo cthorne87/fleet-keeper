@@ -19,11 +19,11 @@ router.get('/', withAuth, (req, res) => {
         include: [
             {
                 model: Registration,
-                attributes: ['id']
+                attributes: ['state']
             },
             {
                 model: Insurance,
-                attributes: ['id']
+                attributes: ['policy_number']
             }
         ]
     })
