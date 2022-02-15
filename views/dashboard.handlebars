@@ -1,4 +1,51 @@
-<section>
+  <head>
+   
+    <!-- Bootstrap core CSS -->
+<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: .85rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 2.5rem;
+        }
+      }
+    </style>
+
+    
+  </head>
+  <body>
+    
+<main>
+
+    <div class="p-5 mb-4 bg-light rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-8 fw-bold">Add a Vehicle</h1>
+        <p class="col-md-14 fs-4">Enter VIN to create a new vehicle. A VIN (vehicle identification number) is a unique code, including a serial number, used by the automotive industry to identify individual motor vehicles, towed vehicles, motorcycles, scooters and mopeds. Click create to add more details.  </p>
+     <form class="new-vehicle-form">
+        <div>
+            <label for="vin-lookup">VIN</label>
+            <input type="text" id="vin" />
+        </div>
+        <div>
+    <label for="date-purchased">purchased:</label>
+    <input type="date" id="date-purchased" />
+  </div>
+  </form>
+   <button id="submit" type="submit" class="btn">Create</button>
+      </div>
+    </div>
+
+      </div>
+    </div>
+    <section>
     <div id="vehicles">
         <h3>My Vehicles</h3>
         
@@ -10,8 +57,8 @@
       <th>Year</th>
       <th>Make</th>
       <th>Model</th>
-      <th>Registered</th>
-      <th>Insured</th>
+      <th>Registration Expires</th>
+      <th>Insurance Policy</th>
     </tr>
   </thead>
 <tbody>
@@ -28,7 +75,7 @@
     </div>
 </section>
 <section>
-    <h3>Add a Vehicle</h3>
+    {{!-- <h3>Add a Vehicle</h3>
     <form class="new-vehicle-form">
         <div>
             <label for="vin-lookup">VIN</label>
@@ -37,7 +84,7 @@
         <div>
     <label for="date-purchased">purchased:</label>
     <input type="date" id="date-purchased" />
-  </div>
+  </div> --}}
 
 
 
@@ -67,7 +114,7 @@
     {{!-- <label for="insured">insured:</label>
     <input type="radio" id="insured" /> --}}
   </div>
-        <button id="submit" type="submit" class="btn">Create</button>
+        {{!-- <button id="submit" type="submit" class="btn">Create</button> --}}
     
     </form>
 </section>

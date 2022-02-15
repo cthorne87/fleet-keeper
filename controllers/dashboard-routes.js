@@ -19,7 +19,7 @@ router.get('/', withAuth, (req, res) => {
         include: [
             {
                 model: Registration,
-                attributes: ['state']
+                attributes: ['expiration_date']
             },
             {
                 model: Insurance,
