@@ -3,7 +3,12 @@
 <div>
     <h3>Insurance Info</h3>
     <div>Company: {{company}}</div>
+     <input name="company" type="text" value="{{vehicle.insurance.company}}" class="form-control">
     <div>Policy Number: {{policy_number}}</div>
+     <input name="policy-number" type="text" value="{{vehicle.insurance.policy_number}}"
+                    class="form-control">
     <div>Coverage Starts: {{start_date}}</div>
+    <input name="start-date" type="date" class="form-control">
     <div>Coverage Ends: {{end_date}}</div>
+     <input name="end-date" type="date" class="form-control">
 </div>
