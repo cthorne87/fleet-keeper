@@ -2,7 +2,13 @@
     {{!-- Vehicle Data --}}
     <section class="data-section">
         <div class="data-table">
-            <h3>Vehicle</h3>
+            <div class="d-flex justify-content-between">
+                <h3 style="display: inline;">Vehicle</h3>
+                <div>
+                    <button class="btn btn-edit" id="toggle-modal-vehicle"><i class="bi bi-pencil"></i></button>
+                    <button class="btn btn-delete" id="delete-vehicle-btn">remove</button>
+                </div>
+            </div>
             <table class="table table-striped table-bordered">
                 <thead>
                     <tr>
@@ -21,10 +27,6 @@
                     </tr>
                 </tbody>
             </table>
-            <div class="d-felx align-space-between">
-                <button class="btn btn-primary" id="toggle-modal-vehicle"><i class="bi bi-pencil"></i></button>
-                <button class="btn btn-danger" id="delete-vehicle-btn">remove</button>
-            </div>
         </div>
 
         <div id="edit-vehicle-form" class="hidden">
@@ -46,8 +48,14 @@
     {{!-- Registration Data --}}
     <section class="data-section">
         <div class="data-table">
-            <h3>Registration</h3>
             {{#if vehicle.registration}}
+            <div class="d-flex justify-content-between">
+                <h3>Registration</h3>
+                <div>
+                    <button class="btn btn-edit" id="toggle-modal-registration"><i class="bi bi-pencil"></i></button>
+                    <button class="btn btn-delete" id="delete-registration-btn">remove</button>
+                </div>
+            </div>
             <table class="table table-striped table-bordered">
                 <thead>
                     <tr>
@@ -64,8 +72,6 @@
                     </tr>
                 </tbody>
             </table>
-            <button class="btn btn-primary" id="toggle-modal-registration"><i class="bi bi-pencil"></i></button>
-            <button class="btn btn-danger" id="delete-registration-btn">remove</button>
             {{else}}
             <button class="btn btn-primary" id="toggle-modal-registration">add registration</button>
             {{/if}}
@@ -92,8 +98,14 @@
     {{!-- Insurance Data --}}
     <section class="data-section">
         <div class="data-table">
-            <h3>Insurance</h3>
             {{#if vehicle.insurance}}
+            <div class="d-flex justify-content-between">
+                <h3>Insurance</h3>
+                <div>
+                    <button class="btn btn-edit" id="toggle-modal-insurance"><i class="bi bi-pencil"></i></button>
+                    <button class="btn btn-delete" id="delete-insurance-btn">remove</button>
+                </div>
+            </div>
             <table class="table table-striped table-bordered">
                 <thead>
                     <tr>
@@ -112,8 +124,6 @@
                     </tr>
                 </tbody>
             </table>
-            <button class="btn btn-primary" id="toggle-modal-insurance"><i class="bi bi-pencil"></i></button>
-            <button class="btn btn-danger" id="delete-insurance-btn">remove</button>
             {{else}}
             <button class="btn btn-primary" id="toggle-modal-insurance">add insurance</button>
             {{/if}}

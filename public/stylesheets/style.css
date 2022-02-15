@@ -62,10 +62,8 @@ form label {
 }
 
 .data-section {
-  border: 1px solid #ccc;
-  border-radius: 1%;
-  padding: 2%;
-  margin-bottom: 2%;
+  border-bottom: 1px solid #ccc;
+  padding: 2% 0;
 }
 
 .wrapper {
@@ -94,6 +92,7 @@ main {
   padding: 2% 4%;
 }
 
+
 .btn-no-style {
   background: none;
   border: none;
@@ -110,6 +109,28 @@ main {
 .btn-no-style:hover {
   background: none;
   color: #3486eb;
+}
+
+.btn-edit {
+  background: none;
+  color: #225ca3;
+  transition: all .1s;
+}
+
+.btn-edit:hover {
+  color: white;
+  background-color: #225ca3;
+}
+
+.btn-delete {
+  background: none;
+  color: #C81729;
+  transition: all .1s;
+}
+
+.btn-delete:hover {
+  color: white;
+  background-color: #C81729;
 }
 
 footer {
