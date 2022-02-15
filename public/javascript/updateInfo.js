@@ -1,5 +1,6 @@
 const vehicleId = window.location.toString().split('/').slice(-1).pop();
 
+// Update Vehicle Data
 async function updateVehicle(event) {
     event.preventDefault();
     const type = document.querySelector('input[name="type"]').value.trim();
@@ -24,13 +25,19 @@ async function updateVehicle(event) {
 if (document.querySelector('#update-vehicle-form')) {
     document.querySelector('#update-vehicle-form').addEventListener('click', updateVehicle);
 }
+//
 
-
+// Update Registration Data
 async function updateRegistration(event) {
     event.preventDefault();
     const state = document.querySelector('input[name="state"]').value.trim();
     const issued_date = document.querySelector('input[name="issued"]').value.trim();
     const expiration_date = document.querySelector('input[name="expires"]').value.trim();
+
+    if (!issued_date || expiration_date) {
+        alert('You must include the Issued and Expiration dates');
+        return;
+    }
 
     const response = await fetch(`/api/registration/${vehicleId}`, {
         method: 'PUT',
@@ -48,14 +55,20 @@ async function updateRegistration(event) {
 if (document.querySelector('#update-registration-form')) {
     document.querySelector('#update-registration-form').addEventListener('click', updateRegistration);
 }
+//
 
-
+// Update Insurance Data
 async function updateInsurance(event) {
     event.preventDefault();
     const company = document.querySelector('input[name="company"]').value.trim();
     const policy_number = document.querySelector('input[name="policy-number"]').value.trim();
     const start_date = document.querySelector('input[name="start-date"]').value.trim();
     const end_date = document.querySelector('input[name="end-date"]').value.trim();
+
+    if (!start_date || !end_date) {
+        alert('You must Include a Start and End date');
+        return;
+    }
 
     const response = await fetch(`/api/insurance/${vehicleId}`, {
         method: 'PUT',
@@ -73,7 +86,9 @@ async function updateInsurance(event) {
 if (document.querySelector('#update-insurance-form')) {
     document.querySelector('#update-insurance-form').addEventListener('click', updateInsurance);
 }
+//
 
+// Delete Vehicle and load Dashboard
 async function deleteVehicle(event) {
     const response = await fetch(`/api/vehicle/${vehicleId}`, {
         method: 'DELETE'
@@ -81,11 +96,12 @@ async function deleteVehicle(event) {
     if (response.ok) document.location.replace('/');
     else alert(response.statusText);
 }
-if(document.querySelector('#delete-vehicle-btn')) {
+if (document.querySelector('#delete-vehicle-btn')) {
     document.querySelector('#delete-vehicle-btn').addEventListener('click', deleteVehicle);
 }
+//
 
-
+// For Dynamic Display
 function editDataHandler(event) {
 
     if (event.target.id === "toggle-modal-vehicle") {
@@ -111,3 +127,4 @@ if (document.querySelector('#toggle-modal-registration')) {
 if (document.querySelector('#toggle-modal-insurance')) {
     document.querySelector('#toggle-modal-insurance').addEventListener('click', editDataHandler)
 }
+//

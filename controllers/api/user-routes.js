@@ -4,7 +4,7 @@ const { User, Vehicle, Insurance, Registration } = require('../../models')
 // GET /api/users by id
 router.get('/:id', (req, res) => {
     User.findOne({
-        // attributes: { exclude: ['password'] },
+        attributes: { exclude: ['password'] },
         where: {
             id: req.params.id
         },

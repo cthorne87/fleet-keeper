@@ -1,3 +1,4 @@
+// Add Registration
 async function addRegistration(event) {
     event.preventDefault();
 
@@ -27,7 +28,7 @@ if (document.querySelector('#add-registration-btn')) {
     document.querySelector('#add-registration-btn').addEventListener('click', addRegistration);
 }
 
-
+// Delete Registration
 async function deleteRegistration(event) {
     event.preventDefault();
     const response = await fetch(`/api/registration/${vehicleId}`, {
