@@ -44,6 +44,7 @@ textarea {
 }
 
 a {
+  font-weight: bold;
   text-decoration: none;
   color: #225ca3;
 }
