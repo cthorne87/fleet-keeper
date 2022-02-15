@@ -2,12 +2,8 @@
     <h2>Dashboard</h2>
 </section>
 <section>
-    <h3>Vehicles</h3>
     <div id="vehicles">
-        <h3>Vehicle Model</h3>
-        <div>
-            {{!-- car image goes here --}}
-        </div>
+        <h3>My Vehicles</h3>
         <div>
             {{!-- insurance, registration, etc goes here as li --}}
             <ol>
@@ -16,7 +12,8 @@
                     {{>vehicle-card vehicle}}
                 </li>
                 {{/each}}
-            </ol>
+                </tbody>
+</table>
         </div>
     </div>
 </section>

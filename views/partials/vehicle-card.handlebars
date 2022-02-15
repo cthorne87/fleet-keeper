@@ -1,4 +1,32 @@
-<div>
+ <table id="table" class="table table-striped table-bordered table-condensed table-hover" >
+<tr>
+      <td>  {{vin}}</td>
+       <td>
+                {{year}}
+             </td>   
+              <td>
+                {{make}}
+            </td>
+      <td>
+                {{model}}
+            </td>
+            <td>
+           {{#if registration}}
+        {{>registration-info registration}}
+        {{else}}
+        <a href="/register/{{vin}}"><button>Add Registration</button></a>
+        {{/if}}
+            </td>
+            <td>
+               {{#if insurance}}
+        {{>insurance-info insurance}}
+        {{else}}
+  <a href="/insure/{{vin}}"><button>Add Insurance</button></a>
+        {{/if}}
+            </td>
+    </tr>
+
+      {{!-- <div>
     <h3>VIN: {{vin}}</h3>
     <div>Make: {{make}}</div>
     <div>Model: {{model}}</div>
@@ -7,7 +35,13 @@
         {{#if registration}}
         {{>registration-info registration}}
         {{else}}
+<<<<<<< Updated upstream
         <button>Add Registration</button>
+=======
+        <form id="add-registration">
+            <button type="submit">Add Registration</button>
+        </form>
+>>>>>>> Stashed changes
         {{/if}}
     </div>
 
@@ -15,7 +49,16 @@
         {{#if insurance}}
         {{>insurance-info insurance}}
         {{else}}
+<<<<<<< Updated upstream
         <button>Add insurance</button>
         {{/if}}
     </div>
 </div>
+=======
+        <form id="add-insurance">
+            <button type="submit">Add Insurance</button>
+        </form>
+        {{/if}}
+    </div>
+</div> --}}
+>>>>>>> Stashed changes
