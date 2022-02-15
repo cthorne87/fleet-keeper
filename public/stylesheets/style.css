@@ -114,3 +114,13 @@ footer {
 .hidden {
     display: none;
 }
+
+.collapse {
+    display: none;
+  }
+
+
+.collapsing {
+  height: 0;
+  overflow: hidden;
+}
