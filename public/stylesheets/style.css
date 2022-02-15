@@ -42,6 +42,15 @@ textarea {
   min-height: 100px;
 }
 
+a {
+  text-decoration: none;
+  color: #225ca3;
+}
+
+a:hover {
+  color: #3486eb;
+}
+
 form > div {
   margin-bottom: 2%;
 }

@@ -1,3 +1,4 @@
+// Add Insurance
 async function addInsurance(event) {
     event.preventDefault();
 
@@ -28,6 +29,7 @@ if (document.querySelector('#add-insurance-btn')) {
     document.querySelector('#add-insurance-btn').addEventListener('click', addInsurance);
 }
 
+// Delete Insurance
 async function deleteInsurance(event) {
     event.preventDefault();
     const response = await fetch(`/api/insurance/${vehicleId}`, {
