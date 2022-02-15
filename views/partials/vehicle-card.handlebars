@@ -35,15 +35,15 @@
                 {{model}}
             </td>
             <td>
-           {{#if registration}}
-                {{state}})
+           {{#if registrationData}}
+                {{registration.state}})
         {{else}}
         <a href="/register/{{vin}}"><button>Add Registration</button></a>
         {{/if}}
             </td>
             <td>
-               {{#if insurance}}
-        {{policy_number}}
+               {{#if insuranceData}}
+        {{insurance.policy_number}}
         {{else}}
   <a href="/insure/{{vin}}"><button>Add Insurance</button></a>
         {{/if}}

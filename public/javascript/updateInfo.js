@@ -15,7 +15,7 @@ async function updateVehicle(event) {
             type,
             make,
             model,
-            purchased_date
+            // purchased_date
         })
     });
     if (response.ok) document.location.replace(`/vehicle/${vehicleId}`);

@@ -25,7 +25,7 @@ console.log(console.log(req.body))
          make:vehicleData.Make,
          model:vehicleData.Model,
          user_id: req.session.user_id,
-         purchased: req.body.date
+        //  purchased: req.body.date
         })
    }) .catch(e => console.log(e))   
 })
