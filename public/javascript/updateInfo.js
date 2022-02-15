@@ -7,7 +7,6 @@ async function updateVehicle(event) {
     const model = document.querySelector('input[name="model"]').value.trim();
     const purchased_date = document.querySelector('input[name="purchased-date"]').value.trim();
 
-    // Put request
     const response = await fetch(`/api/vehicle/${vehicleId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
@@ -33,7 +32,6 @@ async function updateRegistration(event) {
     const issued_date = document.querySelector('input[name="issued"]').value.trim();
     const expiration_date = document.querySelector('input[name="expires"]').value.trim();
 
-    // Put request
     const response = await fetch(`/api/registration/${vehicleId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
@@ -59,7 +57,6 @@ async function updateInsurance(event) {
     const start_date = document.querySelector('input[name="start-date"]').value.trim();
     const end_date = document.querySelector('input[name="end-date"]').value.trim();
 
-    // Put request
     const response = await fetch(`/api/insurance/${vehicleId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
@@ -75,6 +72,17 @@ async function updateInsurance(event) {
 }
 if (document.querySelector('#update-insurance-form')) {
     document.querySelector('#update-insurance-form').addEventListener('click', updateInsurance);
+}
+
+async function deleteVehicle(event) {
+    const response = await fetch(`/api/vehicle/${vehicleId}`, {
+        method: 'DELETE'
+    })
+    if (response.ok) document.location.replace('/');
+    else alert(response.statusText);
+}
+if(document.querySelector('#delete-vehicle-btn')) {
+    document.querySelector('#delete-vehicle-btn').addEventListener('click', deleteVehicle);
 }
 
 
