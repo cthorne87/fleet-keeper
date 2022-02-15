@@ -45,14 +45,22 @@
         
     
     <div>
-    <label for="registered">registered:</label>
-    <input type="radio" id="registered" data-bs-toggle="collapse" />
-<div class="collapse">
-    <h3>Registration Info</h3>
-    <div>State: {{state}}</div>
-    <div>Issued: {{issued_date}}</div>
-    <div>Expires: {{expiration_date}}</div>
-</div>
+     <button class="btn btn-success" id="add-registration-btn">add registration</button>
+ <div id="edit-registration-form" class="hidden">
+      <form>
+          <label for="state" class="form-label">State:</label>
+          <input name="state" type="text" value="{{vehicle.registration.state}}" class="form-control">
+          <label for="issued" class="form-label">Issued Date:</label>
+          <input name="issued" type="date" class="form-control">
+          <label for="expires" class="form-label">Expiration Date:</label>
+          <input name="expires" type="date" class="form-control">
+          {{#if vehicle.registration}}
+          <button type="submit" class="btn btn-success" id="update-registration-form">Update</button>
+          {{else}}
+          <button type="submit" class="btn btn-success" id="add-registration-btn">Add</button>
+          {{/if}}
+      </form>
+  </div>
 
   </div>
      <div>
@@ -63,24 +71,3 @@
     
     </form>
 </section>
-
-
-<script>
-  document.querySelector("#submit")
-    .addEventListener("click", function () {
-      fetch("/api/vehicle", {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/json'
-          // 'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: JSON.stringify({
-          vin: document.querySelector("#vin").value,
-          // date: document.querySelector("#date-purchased").value
-        })
-      })
-
-    })
-
-
-</script>
