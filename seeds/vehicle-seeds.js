@@ -5,7 +5,8 @@ const data = [
         vin: '3GCEK13J68G224097',
         purchased: '2016',
         registered: 'yes',
-        insured: 'yes'
+        insured: 'yes',
+        user_id: '1'
     },
 
 ]

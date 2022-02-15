@@ -1,10 +1,16 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Vehicle extends Model {}
+class Vehicle extends Model { }
 
-Vehicle.init (
+Vehicle.init(
     {
+        id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true
+        },
         vin: {
             type: DataTypes.STRING,
             allowNull: true
@@ -22,13 +28,14 @@ Vehicle.init (
             allowNull: true,
         },
         model: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            allowNull: true
         },
         purchased: {
             type: DataTypes.DATE,
             allowNull: true
         },
-        user_id:{
+        user_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
@@ -38,7 +45,7 @@ Vehicle.init (
         }
     },
     {
-    sequelize,
+        sequelize,
         freezeTableName: true,
         underscored: true,
         modelName: 'vehicle'
