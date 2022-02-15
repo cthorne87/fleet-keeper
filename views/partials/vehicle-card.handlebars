@@ -42,14 +42,14 @@
         {{#if registration}}
         {{registration.expiration_date}}
         {{else}}
-        <a href="/register/{{vehicle.id}}"><button>Add Registration</button></a>
+        <a href="/vehicle/{{id}}"><button>Add Registration</button></a>
         {{/if}}
     </td>
     <td>
         {{#if insurance}}
         {{insurance.policy_number}}
         {{else}}
-        <a href="/insure/{{id}}"><button>Add Insurance</button></a>
+        <a href="/vehicle/{{id}}"><button>Add Insurance</button></a>
         {{/if}}
     </td>
 </tr>
