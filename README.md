@@ -19,13 +19,13 @@ Used Dept of Transportation's Vehicle API to get vehicle data based on a vehicle
 ---
 
 ## Built with
-Handlebars.js
-Express.js
-MySQL
-Sequelize ORM
-CSS
-Bootstrap
-JawsDB
+Handlebars.js  
+Express.js  
+MySQL  
+Sequelize ORM  
+CSS  
+Bootstrap  
+JawsDB  
 ## Deployed on Heroku
 
 ---
