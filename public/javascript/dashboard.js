@@ -15,3 +15,4 @@ document.querySelector("#submit")
     window.location.href = `/vehicle/${data.id}`
    }).catch(e => console.log(e))
 })
+
