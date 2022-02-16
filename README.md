@@ -10,11 +10,11 @@ Fleet-Keeper is a Node.js application designed to help users store and track reg
 ## What we did
 
 Used Node.js and Express.js to create a RESTful API.  
-Used Handlebars.js as the templating engine. 
-Used MySQL and the Sequelize ORM for the database.
-Made PUSH, DELETE, GET, and POST routes for retrieving, deleting and adding new data.
-Made a folder structure that meets the MVC paradigm.
-Used Dept of Transportation's Vehicle API to get vehicle data based on a vehicle's VIN.
+Used Handlebars.js as the templating engine.  
+Used MySQL and the Sequelize ORM for the database.  
+Made PUSH, DELETE, GET, and POST routes for retrieving, deleting and adding new data.  
+Made a folder structure that meets the MVC paradigm.  
+Used Dept of Transportation's Vehicle API to get vehicle data based on a vehicle's VIN.  
 
 ---
 
