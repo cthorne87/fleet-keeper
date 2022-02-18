@@ -1,0 +1,97 @@
+<head>
+
+    <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-5">
+            <h1 class="display-8 fw-bold">Add a Vehicle</h1>
+            <p class="col-md-14 fs-4">Enter VIN to create a new vehicle. A VIN (vehicle identification number) is a
+                unique code, including a serial number, used by the automotive industry to identify individual motor
+                vehicles, towed vehicles, motorcycles, scooters and mopeds. Click create to add more details. </p>
+            <form class="new-vehicle-form">
+                <div>
+                    <label for="vin-lookup">VIN</label>
+                    <input type="text" id="vin" />
+                </div>
+            </form>
+        </div>
+        <button id="submit" type="submit" class="btn">Create</button>
+    </div>
+    </div>
+
+    </div>
+    </div>
+    <section>
+        <div id="vehicles">
+            <h3>My Vehicles</h3>
+
+            <div>
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>VIN</th>
+                            <th>Year</th>
+                            <th>Make</th>
+                            <th>Model</th>
+                            <th>Registered</th>
+                            <th>Insured</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each vehicles as |vehicle|}}
+
+                        {{>vehicle-card vehicle}}
+
+                        {{/each}}
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+    </section>
+    {{!-- <section>
+        <h3>Add a Vehicle</h3>
+        <form class="new-vehicle-form">
+            <div>
+                <label for="vin-lookup">VIN</label>
+                <input type="text" id="vin" />
+            </div>
+            <div>
+                <label for="date-purchased">purchased:</label>
+                <input type="date" id="date-purchased" />
+            </div> --}}
+
+
+
+
+
+
+            <div>
+                {{!-- <button class="btn btn-success" id="add-registration">add registration</button>
+                <div id="edit-registration-form" class="hidden"> --}}
+                    <form>
+                        {{!-- <label for="state" class="form-label">State:</label>
+                        <input name="state" type="text" value="{{vehicle.registration.state}}" class="form-control">
+                        --}}
+                        {{!-- <label for="issued" class="form-label">Issued Date:</label>
+                        <input name="issued" type="date" class="form-control"> --}}
+                        {{!-- <label for="expires" class="form-label">Expiration Date:</label>
+                        <input name="expires" type="date" class="form-control"> --}}
+                        {{!-- {{#if vehicle.registration}} --}}
+                        {{!-- <button type="submit" class="btn btn-success"
+                            id="update-registration-form">Update</button>
+                        {{else}}
+                        <button type="submit" class="btn btn-success" id="add-registration-btn">Add</button>
+                        {{/if}} --}}
+                    </form>
+                </div>
+
+            </div>
+            {{!-- <div> --}}
+                {{!-- <label for="insured">insured:</label>
+                <input type="radio" id="insured" /> --}}
+                {{!--
+            </div> --}}
+            {{!-- <button id="submit" type="submit" class="btn">Create</button> --}}
+
+        </form>
+    </section>
